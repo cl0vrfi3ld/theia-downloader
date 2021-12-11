@@ -1,23 +1,15 @@
 const { app, BrowserWindow, ipcMain, dialog } = require("electron");
 const path = require("path");
-const fs = require("fs");
+// const fs = require("fs");
+const Store = require("electron-store");
 const ytcog = require("ytcog");
 // const ytdl = require("ytdl-core");
-const ffmpeg = require("fluent-ffmpeg");
+
 const { URL } = require("url");
-const ffmpegPath = require("ffmpeg-static").replace(
-  "app.asar",
-  "app.asar.unpacked"
-);
-const ffprobePath = require("ffprobe-static").path.replace(
-  "app.asar",
-  "app.asar.unpacked"
-);
 
-ffmpeg.setFfmpegPath(ffmpegPath);
-ffmpeg.setFfprobePath(ffprobePath);
-
+/** @type {import('electron').BrowserWindow} */
 let mainWindow;
+let store;
 
 const createWindow = () => {
   // Create the browser window.
@@ -34,6 +26,12 @@ const createWindow = () => {
   // and load the index.html of the app.
   mainWindow.loadFile("src/renderer/public/index.html");
 
+  const schema = {
+    saveDir: {
+      type: "string",
+    },
+  };
+  store = new Store({ schema });
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
 };
@@ -76,6 +74,14 @@ ipcMain.on("alert", async (eve, args) => {
   });
 });
 
+ipcMain.handle("store_get", (eve, args) => {
+  return store.get(args.query);
+});
+
+ipcMain.handle("store_set", (eve, args) => {
+  return store.set(args.query, args.data);
+});
+
 ipcMain.on("start_download", (eve, args) => {
   try {
     console.log(args);
@@ -106,7 +112,8 @@ ipcMain.on("start_download", (eve, args) => {
         container: "mp3",
         progress: (prog, size, total) => {
           //  bytesDownloaded += size;
-          process.stdout.write(`Progress ${Math.floor(prog)}% \r`);
+          // process.stdout.write(`Progress ${Math.floor(prog)}% \r`);
+          mainWindow.webContents.send("progress_update", Math.floor(prog));
         },
       })
       .then((res) => {

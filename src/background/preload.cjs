@@ -8,6 +8,9 @@ const validChannels = [
   "get_save_dir",
   "save_dir_selected",
   "alert",
+  "store_get",
+  "store_set",
+  "progress_update",
 ];
 contextBridge.exposeInMainWorld("ipc", {
   send: (channel, data) => {
