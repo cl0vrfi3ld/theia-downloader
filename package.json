@@ -25,16 +25,18 @@
     "svelte-check": "^2.0.0",
     "svelte-preprocess": "^4.9.8",
     "tslib": "^2.0.0",
-    "typescript": "^4.0.0"
+    "typescript": "^4.0.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "rollup-plugin-sass": "^1.2.10"
   },
   "dependencies": {
-    "@rollup/plugin-json": "^4.1.0",
     "electron": "^16.0.4",
     "electron-store": "^8.0.1",
     "ffmpeg-static": "^4.4.0",
     "ffprobe-static": "^3.0.0",
     "fluent-ffmpeg": "^2.1.2",
     "node-sass": "^7.0.0",
+    "sass": "^1.45.0",
     "sirv-cli": "^1.0.0",
     "ytcog": "^2.2.1",
     "ytdl-core": "^4.9.1"
