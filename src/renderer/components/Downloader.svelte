@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { IpcRenderer } from "electron";
   import { onMount } from "svelte";
+  import TButton from "./TButton.svelte";
 
   // console.log(Store.);
 
@@ -61,11 +62,15 @@
   });
 </script>
 
-<div>
-  <h1>download</h1>
-  <form on:submit|preventDefault={doDownload}>
-    <input type="text" bind:value={url} placeholder="youtube url" />
+<div class="align-center text-white flex flex-col items-center content-center">
+  <h1 class="text-2xl">download!</h1>
+  <form
+    on:submit|preventDefault={doDownload}
+    class="flex flex-col items-center content-center"
+  >
     <br />
+    <input type="text" bind:value={url} placeholder="youtube url" />
+
     <br />
     <button
       type="file"
@@ -85,6 +90,12 @@
   <h2>status: {status}</h2>
   <h2>progress: {progress}%</h2>
   <h2>path: {path}</h2>
+  <TButton on:click={doDownload}>download</TButton>
+  <br />
+  <TButton on:click={doDownload}>lofi</TButton>
+  <br />
+  <TButton on:click={doDownload}>hifi</TButton>
+  <br />
   <button
     on:click={() => {
       //
@@ -93,8 +104,5 @@
 </div>
 
 <style lang="sass">
-  h1,h2
-   color: white
-   text-align: center
 
 </style>

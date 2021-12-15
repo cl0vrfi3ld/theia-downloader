@@ -5,9 +5,13 @@ import livereload from "rollup-plugin-livereload";
 import { terser } from "rollup-plugin-terser";
 import sveltePreprocess from "svelte-preprocess";
 import typescript from "@rollup/plugin-typescript";
+// import postcssrc from "postcss-load-config";
 import css from "rollup-plugin-css-only";
 import sass from "rollup-plugin-sass";
 import json from "@rollup/plugin-json";
+// import postcss from "rollup-plugin-postcss";
+import tailwind from "tailwindcss";
+import autoprefixer from "autoprefixer";
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -43,19 +47,37 @@ export default {
     format: "iife",
     name: "app",
     file: "src/renderer/public/build/bundle.js",
-  } /*
-  watch: {
-    include: "src/renderer",
-    exclude: "src/renderer/public/build",
-  },*/,
+  },
   plugins: [
+    // postcssrc(),
+
     svelte({
-      preprocess: sveltePreprocess({ sourceMap: !production }),
+      preprocess: sveltePreprocess({
+        sourceMap: !production,
+        postcss: { plugins: [autoprefixer, tailwind] },
+        sass: {
+          prependData: `@import 'src/renderer/public/main.sass'`,
+        },
+
+        replace: [
+          ["IS_DEV", !production],
+          ["DEV_PAGE", JSON.stringify(process.env.DEV_PAGE)],
+        ], // style: "postcss",
+      }),
+
       compilerOptions: {
         // enable run-time checks when not in production
         dev: !production,
       },
+
+      include: [
+        "src/renderer/**/*.svelte",
+        "node_modules/svelte-spa-router/*.svelte",
+      ],
     }),
+
+    // postcss({ extract: "src/renderer/public/build/bundle.css" }),
+
     sass({ output: "src/renderer/public/build/sass-out.css" }),
     // we'll extract any component CSS out into
     // a separate file - better for performance
@@ -85,14 +107,12 @@ export default {
     // browser on changes when not in production
     !production && livereload("src/renderer/public"),
 
-    // live reload for components
-    !production && livereload("src/renderer/components"),
-
     // If we're building for production (npm run build
     // instead of npm run dev), minify
     production && terser(),
   ],
   watch: {
     clearScreen: false,
+    exclude: "src/renderer/public/build",
   },
 };

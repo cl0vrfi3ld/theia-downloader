@@ -1,4 +1,5 @@
-import "./public/main.sass"
+// import "./public/main.sass"
+import 'tailwindcss/tailwind.css';
 import App from "./App.svelte";
 
 

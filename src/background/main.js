@@ -17,6 +17,7 @@ const createWindow = () => {
   mainWindow = new BrowserWindow({
     width: 1000,
     height: 800,
+
     webPreferences: {
       preload: path.join(__dirname, "preload.cjs"),
       contextIsolation: true,
@@ -26,11 +27,16 @@ const createWindow = () => {
   // and load the index.html of the app.
   mainWindow.loadFile("src/renderer/public/index.html");
 
+  // schema for our persistent local db
   const schema = {
     saveDir: {
       type: "string",
     },
+    completedSetup: {
+      type: "boolean",
+    },
   };
+  // init local db
   store = new Store({ schema });
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
@@ -58,6 +64,7 @@ app.on("window-all-closed", () => {
 
 // ipc time!
 
+// prompts user to choose a folder to save music to, then returns the path to the renderer
 ipcMain.handle("get_save_dir", async (eve, args) => {
   const selectedDir = await dialog.showOpenDialog(mainWindow, {
     properties: ["openDirectory"],
@@ -66,6 +73,7 @@ ipcMain.handle("get_save_dir", async (eve, args) => {
   return selectedDir.filePaths[0];
 });
 
+// like browser `alert()`, but native
 ipcMain.on("alert", async (eve, args) => {
   dialog.showMessageBoxSync(mainWindow, {
     message: args.message,
@@ -74,21 +82,24 @@ ipcMain.on("alert", async (eve, args) => {
   });
 });
 
+// get from store
 ipcMain.handle("store_get", (eve, args) => {
   return store.get(args.query);
 });
 
+// set in store
 ipcMain.handle("store_set", (eve, args) => {
   return store.set(args.query, args.data);
 });
 
+// download a song
 ipcMain.on("start_download", (eve, args) => {
   try {
     console.log(args);
     let vidId;
     if (!args.url)
       throw new Error(
-        "expected url to parse for download, recieved falsy value."
+        "expected url to parse for download, received falsy value."
       );
 
     const urlObj = new URL(args.url);
@@ -111,8 +122,7 @@ ipcMain.on("start_download", (eve, args) => {
         videoQuality: "none",
         container: "mp3",
         progress: (prog, size, total) => {
-          //  bytesDownloaded += size;
-          // process.stdout.write(`Progress ${Math.floor(prog)}% \r`);
+          // send progress to renderer
           mainWindow.webContents.send("progress_update", Math.floor(prog));
         },
       })
