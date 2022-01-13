@@ -12,6 +12,9 @@ import json from "@rollup/plugin-json";
 // import postcss from "rollup-plugin-postcss";
 import tailwind from "tailwindcss";
 import autoprefixer from "autoprefixer";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -56,12 +59,22 @@ export default {
         sourceMap: !production,
         postcss: { plugins: [autoprefixer, tailwind] },
         sass: {
-          prependData: `@import 'src/renderer/public/main.sass'`,
+          prependData: `@import 'src/renderer/public/vars.sass'`,
         },
 
         replace: [
           ["IS_DEV", !production],
           ["DEV_PAGE", JSON.stringify(process.env.DEV_PAGE)],
+          [
+            "ENV_VERSION",
+            process.env.VERSION ? process.env.VERSION : "Unknown",
+          ],
+          [
+            "MUSICKIT_TOKEN",
+            production
+              ? process.env.MUSICKIT_TOKEN_PROD.toString()
+              : process.env.MUSICKIT_TOKEN_DEV.toString(),
+          ],
         ], // style: "postcss",
       }),
 
@@ -91,6 +104,7 @@ export default {
     resolve({
       browser: true,
       dedupe: ["svelte"],
+      preferBuiltins: false,
     }),
     commonjs(),
     typescript({

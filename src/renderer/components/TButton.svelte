@@ -3,7 +3,7 @@
 
   const dispatch = createEventDispatcher();
 
-  export let isActive: boolean;
+  export let isActive: boolean = false;
 </script>
 
 <button

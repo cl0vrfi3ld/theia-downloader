@@ -50,7 +50,8 @@
     progress = arg;
   });
 
-  onMount(async () => {
+  onMount(() => {
+    /*
     ipcRenderer
       .invoke("store_get", { query: "saveDir" })
       .then((res) => {
@@ -58,7 +59,7 @@
       })
       .catch((err) => {
         console.error(err);
-      });
+      }); */
   });
 </script>
 
@@ -69,22 +70,15 @@
     class="flex flex-col items-center content-center"
   >
     <br />
-    <input type="text" bind:value={url} placeholder="youtube url" />
+    <input
+      type="text"
+      bind:value={url}
+      placeholder="youtube url"
+      class="text-black placeholder-gray-600"
+    />
 
     <br />
-    <button
-      type="file"
-      on:click|preventDefault={async () => {
-        // console.log("clicked");
-        // path = await
-        ipcRenderer.invoke("get_save_dir").then((res) => {
-          console.log(res);
-          if (!res) return;
-          path = res;
-          ipcRenderer.invoke("store_set", { query: "saveDir", data: path });
-        });
-      }}>pick your downloads folder</button
-    >
+
     <button type="submit">download</button>
   </form>
   <h2>status: {status}</h2>
@@ -97,9 +91,24 @@
   <TButton on:click={doDownload}>hifi</TButton>
   <br />
   <button
+    type="file"
+    on:click|preventDefault={async () => {
+      // console.log("clicked");
+      // path = await
+      ipcRenderer.invoke("get_save_dir").then((res) => {
+        console.log(res);
+        if (!res) return;
+        path = res;
+        ipcRenderer.invoke("store_set", { query: "saveDir", data: path });
+      });
+    }}>pick your downloads folder</button
+  >
+  <button
     on:click={() => {
-      //
-    }}>open dir</button
+      ipcRenderer.invoke("clear_save_dir").then((res) => {
+        path = "";
+      });
+    }}>clear dir</button
   >
 </div>
 

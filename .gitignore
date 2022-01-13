@@ -3,3 +3,4 @@ src/renderer/public/build
 
 .DS_Store
 yarn-error.log
+.env

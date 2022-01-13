@@ -21,6 +21,9 @@ module.exports = {
   darkMode: "class",
   theme: {
     extend: {},
+    fontFamily: {
+      sans: ["Nunito", "sans-serif"],
+    },
   },
   variants: {},
   plugins: [],

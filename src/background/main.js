@@ -11,12 +11,21 @@ const { URL } = require("url");
 let mainWindow;
 let store;
 
+// widevine stuff
+/*
+app.commandLine.appendSwitch("widevine-cdm-path", "../resources");
+app.commandLine.appendSwitch("widevine-cdm-version", "4.10.2391.0");
+*/
+console.log(__dirname);
+
 const createWindow = () => {
   // Create the browser window.
   console.log(process.env.NODE_ENV);
   mainWindow = new BrowserWindow({
     width: 1000,
     height: 800,
+    titleBarStyle: "hidden",
+    // transparent: true,
 
     webPreferences: {
       preload: path.join(__dirname, "preload.cjs"),
@@ -26,6 +35,7 @@ const createWindow = () => {
 
   // and load the index.html of the app.
   mainWindow.loadFile("src/renderer/public/index.html");
+  // mainWindow.loadURL("https://shaka-player-demo.appspot.com/");
 
   // schema for our persistent local db
   const schema = {
@@ -71,6 +81,10 @@ ipcMain.handle("get_save_dir", async (eve, args) => {
   });
   console.log(selectedDir.filePaths[0]);
   return selectedDir.filePaths[0];
+});
+
+ipcMain.handle("clear_save_dir", (eve, args) => {
+  return store.set("saveDir", "");
 });
 
 // like browser `alert()`, but native
