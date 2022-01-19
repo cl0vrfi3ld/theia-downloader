@@ -64,7 +64,10 @@ export default {
 
         replace: [
           ["IS_DEV", !production],
-          ["DEV_PAGE", JSON.stringify(process.env.DEV_PAGE)],
+          [
+            "DEV_PAGE",
+            JSON.stringify(process.env.DEV_PAGE ? process.env.DEV_PAGE : null),
+          ],
           [
             "ENV_VERSION",
             process.env.VERSION ? process.env.VERSION : "Unknown",

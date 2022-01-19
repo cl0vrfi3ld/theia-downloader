@@ -1,13 +1,16 @@
 <script lang="ts">
   import type { IpcRenderer } from "electron";
-  import { onMount } from "svelte";
+  import { onMount, getContext } from "svelte";
   import TButton from "./TButton.svelte";
+
+  import { auth, gun, user } from "../util/svelte-gun";
 
   // console.log(Store.);
 
   // type bridgedIpcRenderer = Override<IpcRenderer, >
 
   const ipcRenderer: IpcRenderer = window.ipc;
+  let context: AppContext = getContext("AppContext");
   let url: string;
   let path: string;
   let status: string = "waiting";
@@ -50,7 +53,18 @@
     progress = arg;
   });
 
-  onMount(() => {
+  onMount(async () => {
+    context.setBg(1);
+
+    if (!user.is) await auth();
+
+    user
+      .get("preferences")
+      .get("save_dir")
+      .on((i) => {
+        path = i;
+        path = path;
+      });
     /*
     ipcRenderer
       .invoke("store_get", { query: "saveDir" })
@@ -92,22 +106,20 @@
   <br />
   <button
     type="file"
-    on:click|preventDefault={async () => {
+    on:click|preventDefault={() => {
       // console.log("clicked");
       // path = await
       ipcRenderer.invoke("get_save_dir").then((res) => {
         console.log(res);
         if (!res) return;
-        path = res;
-        ipcRenderer.invoke("store_set", { query: "saveDir", data: path });
+        //  path = res;
+        user.get("preferences").get("save_dir").put(res);
       });
     }}>pick your downloads folder</button
   >
   <button
     on:click={() => {
-      ipcRenderer.invoke("clear_save_dir").then((res) => {
-        path = "";
-      });
+      user.get("preferences").get("save_dir").put(null);
     }}>clear dir</button
   >
 </div>

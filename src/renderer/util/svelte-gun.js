@@ -27,21 +27,21 @@ Gun.chain.subscribe = function (publish) {
   return gun.off;
 };
 
-doAuth();
-
 const doAuth = async () => {
   const pairItem = localStorage.getItem("userPair");
 
   if (pairItem) {
-    gun.user.auth(JSON.parse(pairItem));
+    gun.user().auth(JSON.parse(pairItem));
   } else {
     // we're gonna create a keypair for this user.
     const newPair = await SEA.pair();
-    gun.user.auth(newPair);
+    gun.user().auth(newPair);
 
     localStorage.setItem("userPair", JSON.stringify(newPair));
   }
 };
+
+export { doAuth as auth };
 
 export const gun = Gun();
 
