@@ -14,13 +14,13 @@
   });
 </script>
 
-<div class="h-screen w-screen">
+<div class="h-full w-screen">
+  <h1 class=" top-24 absolute text-center text-white text-4xl w-full">
+    where should i put your music?
+  </h1>
   <div
     class="flex flex-col items-center justify-center align-middle justify-evenly h-full"
   >
-    <h1 class="mx-11 -mt-32 text-center text-white text-4xl">
-      where should i put your music?
-    </h1>
     <TButton
       on:click={async () => {
         // console.log("clicked");
@@ -33,10 +33,9 @@
           user
             .get("preferences")
             .get("save_dir")
-            .put(res, () => push("/download"));
+            .put(res, () => push("/download/true"));
         });
       }}>select folder</TButton
     >
-    <div class=" h-[26px]" />
   </div>
 </div>

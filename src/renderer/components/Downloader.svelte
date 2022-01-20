@@ -11,10 +11,14 @@
 
   const ipcRenderer: IpcRenderer = window.ipc;
   let context: AppContext = getContext("AppContext");
+  let isDev = IS_DEV;
   let url: string;
   let path: string;
   let status: string = "waiting";
   let progress: number = 0;
+  let format = 1;
+  let fidelity = 2;
+
   const doDownload = () => {
     if (!url) {
       ipcRenderer.send("alert", {
@@ -77,51 +81,56 @@
   });
 </script>
 
-<div class="align-center text-white flex flex-col items-center content-center">
-  <h1 class="text-2xl">download!</h1>
+<div class="align-center text-white flex flex-col items-center content-center ">
   <form
     on:submit|preventDefault={doDownload}
     class="flex flex-col items-center content-center"
   >
-    <br />
     <input
       type="text"
       bind:value={url}
       placeholder="youtube url"
-      class="text-black placeholder-gray-600"
+      class="bg-action text-white placeholder-white rounded-2xl mb-[12px] h-8 text-center p-2"
     />
+    <div class="mb-[12px] mx-[54px]">
+      <TButton on:click={() => (format = 0)} isActive={Boolean(format === 0)}
+        >mp3</TButton
+      >
+      <TButton on:click={() => (format = 1)} isActive={Boolean(format === 1)}
+        >flac</TButton
+      >
+      <TButton on:click={() => (format = 2)} isActive={Boolean(format === 2)}
+        >wav</TButton
+      >
+    </div>
+    <div class="mb-[12px] mx-[54px]">
+      <TButton
+        on:click={() => (fidelity = 0)}
+        isActive={Boolean(fidelity === 0)}>lo-fi</TButton
+      >
+      <TButton
+        on:click={() => (fidelity = 1)}
+        isActive={Boolean(fidelity === 1)}>mid-fi</TButton
+      >
+      <TButton
+        on:click={() => (fidelity = 2)}
+        isActive={Boolean(fidelity === 2)}>hi-fi</TButton
+      >
+    </div>
 
+    <TButton on:click={doDownload}>download</TButton>
     <br />
-
-    <button type="submit">download</button>
   </form>
   <h2>status: {status}</h2>
   <h2>progress: {progress}%</h2>
   <h2>path: {path}</h2>
-  <TButton on:click={doDownload}>download</TButton>
-  <br />
-  <TButton on:click={doDownload}>lofi</TButton>
-  <br />
-  <TButton on:click={doDownload}>hifi</TButton>
-  <br />
-  <button
-    type="file"
-    on:click|preventDefault={() => {
-      // console.log("clicked");
-      // path = await
-      ipcRenderer.invoke("get_save_dir").then((res) => {
-        console.log(res);
-        if (!res) return;
-        //  path = res;
-        user.get("preferences").get("save_dir").put(res);
-      });
-    }}>pick your downloads folder</button
-  >
-  <button
-    on:click={() => {
-      user.get("preferences").get("save_dir").put(null);
-    }}>clear dir</button
-  >
+  {#if isDev}
+    <button
+      on:click={() => {
+        user.get("preferences").get("save_dir").put(null);
+      }}>clear dir</button
+    >
+  {/if}
 </div>
 
 <style lang="sass">

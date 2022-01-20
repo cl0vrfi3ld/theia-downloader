@@ -16,12 +16,13 @@
   onMount(() => {
     console.log(isDev);
     console.log(pageEnv);
+    // if (isDev) localStorage.clear();
     if (pageEnv) push(`/${pageEnv}`);
   });
 
   const routes = {
     "/": Home,
-    "/download": Download,
+    "/download/:justSetup?": Download,
     "/setup": Setup,
     // "/login": Login,
   };
@@ -32,10 +33,12 @@
   });
 </script>
 
-<main class={`bg-main-grad bg_${bgState}`}>
+<main class={`bg-main-grad h-screen bg_${bgState}`}>
   <div class="w-screen h-[26px]" style=" -webkit-app-region: drag;" />
 
   <Router {routes} />
+
+  <div class="w-screen h-[26px] absolute bottom-0" />
 </main>
 
 <style global lang="postcss">
