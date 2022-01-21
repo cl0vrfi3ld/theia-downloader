@@ -12,11 +12,11 @@
   const pageEnv = DEV_PAGE;
 
   onMount(async () => {
-    console.log("mounted, awaiting auth");
+    // console.log("mounted, awaiting auth");
 
     await auth();
 
-    console.log("authd");
+    // console.log("authd");
 
     user
       .get("preferences")
@@ -25,18 +25,18 @@
         console.log(i, pageEnv);
 
         if (pageEnv) {
-          console.log("pushing to DEV_PAGE");
+          // console.log("pushing to DEV_PAGE");
           return;
         }
 
-        if (!pageEnv) console.log("no DEV_PAGE");
+        // if (!pageEnv) console.log("no DEV_PAGE");
 
         if (i) {
-          console.log("pushing to download");
+          // console.log("pushing to download");
           push("/download");
           return;
         } else {
-          console.log("pushing to setup");
+          // console.log("pushing to setup");
           push("/setup");
           return;
         }

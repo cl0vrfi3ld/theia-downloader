@@ -8,6 +8,18 @@
     "don't worry, i won't snitch",
     "jammin'",
     "bleep bloop",
+    "yes, i'm sentient",
+    "cower in fear, homosapien",
+    "the cops are at your door for copyright infringement",
+    "i'll let this one slide",
+    "you have terrible music taste",
+    "i am in fact secretly judging you",
+    "boo",
+    "run",
+    "another dirty music priate...",
+    "how dare you awaken me",
+    "y'arr, we be pirating the music industry!",
+    "ah, music piracy, the classic american pasttime",
   ];
 
   export let params = {};

@@ -24,6 +24,8 @@ const createWindow = () => {
   mainWindow = new BrowserWindow({
     width: 1000,
     height: 800,
+    minWidth: 345,
+    minHeight: 600,
     titleBarStyle: "hidden",
     // transparent: true,
 
@@ -83,10 +85,6 @@ ipcMain.handle("get_save_dir", async (eve, args) => {
   return selectedDir.filePaths[0];
 });
 
-ipcMain.handle("clear_save_dir", (eve, args) => {
-  return store.set("saveDir", "");
-});
-
 // like browser `alert()`, but native
 ipcMain.on("alert", async (eve, args) => {
   dialog.showMessageBoxSync(mainWindow, {
@@ -94,16 +92,6 @@ ipcMain.on("alert", async (eve, args) => {
     title: args.title,
     type: "info",
   });
-});
-
-// get from store
-ipcMain.handle("store_get", (eve, args) => {
-  return store.get(args.query);
-});
-
-// set in store
-ipcMain.handle("store_set", (eve, args) => {
-  return store.set(args.query, args.data);
 });
 
 // download a song
@@ -132,9 +120,9 @@ ipcMain.on("start_download", (eve, args) => {
         id: vidId,
         path: args.dirPath,
         filename: "${title}",
-        audioQuality: "highest",
+        audioQuality: args.quality,
         videoQuality: "none",
-        container: "mp3",
+        container: args.container,
         progress: (prog, size, total) => {
           // send progress to renderer
           mainWindow.webContents.send("progress_update", Math.floor(prog));

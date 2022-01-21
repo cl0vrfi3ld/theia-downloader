@@ -10,7 +10,7 @@
   "private": true,
   "main": "src/background/main.js",
   "scripts": {
-    "build-js": "rollup -c",
+    "build-js": "NODE_ENV=production rollup -c",
     "pack": "yarn build-js && electron-builder --dir",
     "dist": "yarn build-js && electron-builder",
     "dev": "rollup -c -w",

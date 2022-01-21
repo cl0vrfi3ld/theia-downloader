@@ -72,12 +72,6 @@ export default {
             "ENV_VERSION",
             process.env.VERSION ? process.env.VERSION : "Unknown",
           ],
-          [
-            "MUSICKIT_TOKEN",
-            production
-              ? process.env.MUSICKIT_TOKEN_PROD.toString()
-              : process.env.MUSICKIT_TOKEN_DEV.toString(),
-          ],
         ], // style: "postcss",
       }),
 

@@ -14,10 +14,11 @@
   let isDev = IS_DEV;
   let url: string;
   let path: string;
-  let status: string = "waiting";
+  let status: string = "download";
   let progress: number = 0;
-  let format = 1;
-  let fidelity = 2;
+  let format: string = "flac";
+  let fidelity: string = "highest";
+  let dlbtnDisabled = false;
 
   const doDownload = () => {
     if (!url) {
@@ -34,11 +35,15 @@
       });
       return;
     }
+
+    dlbtnDisabled = true;
     status = "downloading...";
+
     ipcRenderer.send("start_download", {
       url,
       dirPath: path,
-      fileName: "test1",
+      container: format,
+      quality: fidelity,
     });
   };
   /*ipcRenderer.on("save_dir_selected", (arg) => {
@@ -46,8 +51,15 @@
     path = arg[0];
   });*/
   ipcRenderer.on("download_finished", (arg: object) => {
-    if (arg.success) status = "finished";
-    else {
+    if (arg.success) {
+      status = "finished";
+      progress = 0;
+
+      setTimeout(() => {
+        status = "download";
+        dlbtnDisabled = false;
+      }, 1000);
+    } else {
       status = "error";
       console.log(arg.err);
     }
@@ -90,46 +102,56 @@
       type="text"
       bind:value={url}
       placeholder="youtube url"
-      class="bg-action text-white placeholder-white rounded-2xl mb-[12px] h-8 text-center p-2"
+      class="bg-action text-white placeholder-white rounded-2xl mb-[12px] h-8 text-center py-2 px-3"
     />
     <div class="mb-[12px] mx-[54px]">
-      <TButton on:click={() => (format = 0)} isActive={Boolean(format === 0)}
-        >mp3</TButton
+      <TButton
+        on:click={() => (format = "mp3")}
+        isActive={Boolean(format === "mp3")}>mp3</TButton
       >
-      <TButton on:click={() => (format = 1)} isActive={Boolean(format === 1)}
-        >flac</TButton
+      <TButton
+        on:click={() => (format = "flac")}
+        isActive={Boolean(format === "flac")}>flac</TButton
       >
-      <TButton on:click={() => (format = 2)} isActive={Boolean(format === 2)}
-        >wav</TButton
+      <TButton
+        on:click={() => (format = "wav")}
+        isActive={Boolean(format === "wav")}
+        tooltip="coming very, very soon!"
+        disabled={true}>wav</TButton
       >
     </div>
     <div class="mb-[12px] mx-[54px]">
       <TButton
-        on:click={() => (fidelity = 0)}
-        isActive={Boolean(fidelity === 0)}>lo-fi</TButton
+        on:click={() => (fidelity = "lowest")}
+        isActive={Boolean(fidelity === "lowest")}>lo-fi</TButton
       >
       <TButton
-        on:click={() => (fidelity = 1)}
-        isActive={Boolean(fidelity === 1)}>mid-fi</TButton
+        on:click={() => (fidelity = "medium")}
+        isActive={Boolean(fidelity === "medium")}>mid-fi</TButton
       >
       <TButton
-        on:click={() => (fidelity = 2)}
-        isActive={Boolean(fidelity === 2)}>hi-fi</TButton
+        on:click={() => (fidelity = "highest")}
+        isActive={Boolean(fidelity === "highest")}>hi-fi</TButton
       >
     </div>
 
-    <TButton on:click={doDownload}>download</TButton>
+    <TButton on:click={doDownload} {progress} wide disabled={dlbtnDisabled}
+      >{status}</TButton
+    >
     <br />
   </form>
-  <h2>status: {status}</h2>
-  <h2>progress: {progress}%</h2>
-  <h2>path: {path}</h2>
   {#if isDev}
-    <button
-      on:click={() => {
-        user.get("preferences").get("save_dir").put(null);
-      }}>clear dir</button
-    >
+    <div>
+      <h2>status: {status}</h2>
+      <h2>progress: {progress}%</h2>
+      <h2>path: {path}</h2>
+
+      <button
+        on:click={() => {
+          user.get("preferences").get("save_dir").put(null);
+        }}>clear dir</button
+      >
+    </div>
   {/if}
 </div>
 
