@@ -1,7 +1,8 @@
 const { app, BrowserWindow, ipcMain, dialog } = require("electron");
 const path = require("path");
+const nativeLog = require("electron-log");
 // const fs = require("fs");
-const Store = require("electron-store");
+
 const ytcog = require("ytcog");
 // const ytdl = require("ytdl-core");
 
@@ -9,8 +10,14 @@ const { URL } = require("url");
 
 /** @type {import('electron').BrowserWindow} */
 let mainWindow;
-let store;
 
+let nodeLog = console.log;
+
+console.log = nativeLog.log;
+
+Object.assign(console, nativeLog.functions);
+
+nativeLog.catchErrors();
 // widevine stuff
 /*
 app.commandLine.appendSwitch("widevine-cdm-path", "../resources");
@@ -49,7 +56,7 @@ const createWindow = () => {
     },
   };
   // init local db
-  store = new Store({ schema });
+  // store = new Store({ schema });
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
 };
