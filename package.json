@@ -9,6 +9,7 @@
   "version": "0.0.1",
   "private": true,
   "main": "src/background/main.js",
+  "homepage": "https://theia.rocks",
   "scripts": {
     "build-js": "NODE_ENV=production rollup -c",
     "pack": "yarn build-js && electron-builder --dir",
@@ -23,10 +24,30 @@
     "appId": "rocks.theia.client",
     "copyright": "Copyright © 2020 Livelyx",
     "mac": {
-      "category": "your.app.category.type"
+      "category": "public.app-category.music",
+      "target": "dmg"
+    },
+    "win": {
+      "target": "nsis"
     },
     "dmg": {
-      "title": "Install Theia"
+      "title": "Install Theia",
+      "window": {
+        "width": 540,
+        "height": 380
+      },
+      "contents": [
+        {
+          "x": 110,
+          "y": 190
+        },
+        {
+          "x": 430,
+          "y": 190,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
     }
   },
   "devDependencies": {
@@ -64,6 +85,7 @@
   },
   "dependencies": {
     "@types/musickit-js": "^1.0.1",
+    "electron-log": "^4.4.5",
     "electron-store": "^8.0.1",
     "ffmpeg-static": "^4.4.0",
     "ffprobe-static": "^3.0.0",
