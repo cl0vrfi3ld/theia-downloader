@@ -46,17 +46,6 @@ const createWindow = () => {
   mainWindow.loadFile("src/renderer/public/index.html");
   // mainWindow.loadURL("https://shaka-player-demo.appspot.com/");
 
-  // schema for our persistent local db
-  const schema = {
-    saveDir: {
-      type: "string",
-    },
-    completedSetup: {
-      type: "boolean",
-    },
-  };
-  // init local db
-  // store = new Store({ schema });
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
 };
