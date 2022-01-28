@@ -11,3 +11,5 @@ this code is MESSY! this was intended as a personal exercise to learn svelte and
 i'm also currently a student, which restricts the time i have to "manage" this repo, meaning it may take me a bit to respond to your issue/pr.
 
 that's all i have for now, happy hacking, and may your illegally downloaded music library remain ever growing!
+
+`any mentions of music piracy are intended as humour, not to encourage media piracy by any means. buy music, support artists.`
