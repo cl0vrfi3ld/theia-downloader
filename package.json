@@ -28,7 +28,8 @@
       "target": "dmg"
     },
     "win": {
-      "target": "nsis"
+      "target": "nsis",
+      "artifactName": "${productName} Installer v${version}.${ext}"
     },
     "dmg": {
       "title": "Install Theia",
