@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { IpcRenderer } from "electron";
-  import { log } from "gun/gun";
+  // import { log } from "gun/gun";
   import { getContext, onMount } from "svelte";
   import Router, { push } from "svelte-spa-router";
   import { auth, user } from "../util/svelte-gun";
@@ -44,4 +44,4 @@
   });
 </script>
 
-<button on:click={() => context.setBg(2)}>bg</button>
+<!-- <button on:click={() => context.setBg(2)}>bg</button> -->
