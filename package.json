@@ -6,14 +6,14 @@
     "email": "maddie@borderline.network",
     "url": "https://maddiex.wtf/"
   },
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "main": "src/background/main.js",
   "homepage": "https://theia.rocks",
   "scripts": {
     "build-js": "NODE_ENV=production rollup -c",
     "pack": "yarn build-js && electron-builder --dir",
-    "dist": "yarn build-js && electron-builder",
+    "dist": " yarn build-js && electron-builder",
     "dev": "rollup -c -w",
     "start": "NODE_ENV=development electron .",
     "check": "svelte-check --tsconfig ./tsconfig.json",
