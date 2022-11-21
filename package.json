@@ -2,9 +2,8 @@
   "name": "theia-downloader",
   "description": "A cool little youtube downloader",
   "author": {
-    "name": "Livelyx",
-    "email": "maddie@borderline.network",
-    "url": "https://maddiex.wtf/"
+    "name": "Cl0vr",
+    "url": "https://cl0vr.co/"
   },
   "version": "0.0.2",
   "private": true,
@@ -22,7 +21,7 @@
   "build": {
     "productName": "Theia",
     "appId": "rocks.theia.client",
-    "copyright": "Copyright © 2020 Livelyx",
+    "copyright": "Copyright © 2020 Cl0vr",
     "mac": {
       "category": "public.app-category.music",
       "target": "dmg"
