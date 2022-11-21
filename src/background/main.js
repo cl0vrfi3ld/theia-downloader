@@ -82,7 +82,7 @@ ipcMain.handle("get_save_dir", async (eve, args) => {
 });
 
 // like browser `alert()`, but native
-ipcMain.on("alert", async (eve, args) => {
+ipcMain.on("alert", (eve, args) => {
   dialog.showMessageBoxSync(mainWindow, {
     message: args.message,
     title: args.title,
