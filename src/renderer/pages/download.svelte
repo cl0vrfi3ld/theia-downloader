@@ -2,6 +2,7 @@
   import Downloader from "../components/Downloader.svelte";
   import sample from "lodash/sample";
   import { push } from "svelte-spa-router";
+  import { getContext, onMount } from "svelte";
 
   const headers = [
     "go wild",
@@ -23,6 +24,12 @@
   ];
 
   export let params = {};
+
+  let context = getContext("AppContext");
+
+  onMount(() => {
+    context.setBg(sample([1, 4, 5, 6]));
+  });
 </script>
 
 <div class="h-full w-screen">
