@@ -16,7 +16,7 @@
     "dist": " yarn build-js && electron-builder",
     "release": "source ci.env && electron-builder",
     "full-send": "yarn build-js && yarn release",
-    "full-send-pre": "EP_PRE_RELEASE=true yarn build-js && yarn release",
+    "full-send-pre": "yarn build-js && EP_PRE_RELEASE=true yarn release",
     "increment-version": "versiony package.json --patch && git add . && git commit -m 'new version' && git push",
     "dev": "rollup -c -w",
     "start": "NODE_ENV=development electron .",
