@@ -1,6 +1,7 @@
 {
   "name": "theia-downloader",
   "description": "A cool little youtube downloader",
+  "repository": "https://github.com/1MaddieX/theia-app",
   "author": {
     "name": "Cl0vr",
     "url": "https://cl0vr.co/"
@@ -13,6 +14,9 @@
     "build-js": "NODE_ENV=production rollup -c",
     "pack": "yarn build-js && electron-builder --dir",
     "dist": " yarn build-js && electron-builder",
+    "release": "source ci.env electron-builder",
+    "full-send": "yarn build-js && yarn release",
+    "increment-version": "versiony package.json --patch && git add . && git commit -m 'new version' && git push",
     "dev": "rollup -c -w",
     "start": "NODE_ENV=development electron .",
     "check": "svelte-check --tsconfig ./tsconfig.json",
@@ -21,7 +25,7 @@
   "build": {
     "productName": "Theia",
     "appId": "rocks.theia.client",
-    "copyright": "Copyright © 2020 Cl0vr",
+    "copyright": "Copyright © 2022 Cl0vr",
     "mac": {
       "category": "public.app-category.music",
       "target": "dmg"
@@ -57,7 +61,7 @@
     "@rollup/plugin-typescript": "^8.0.0",
     "@tsconfig/svelte": "^2.0.0",
     "autoprefixer": "^10.4.0",
-    "dotenv": "^10.0.0",
+    "dotenv": "^16.0.3",
     "electron": "^16.0.7",
     "electron-builder": "^22.14.5",
     "inquirer": "^8.2.0",
@@ -81,7 +85,8 @@
     "svelte-preprocess": "^4.9.8",
     "tailwindcss": "^3.0.1",
     "tslib": "^2.0.0",
-    "typescript": "^4.0.0"
+    "typescript": "^4.0.0",
+    "versiony": "^2.0.1"
   },
   "dependencies": {
     "@types/musickit-js": "^1.0.1",
