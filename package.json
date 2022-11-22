@@ -14,7 +14,7 @@
     "build-js": "NODE_ENV=production rollup -c",
     "pack": "yarn build-js && electron-builder --dir",
     "dist": " yarn build-js && electron-builder",
-    "release": "source ci.env electron-builder",
+    "release": "source ci.env && electron-builder",
     "full-send": "yarn build-js && yarn release",
     "increment-version": "versiony package.json --patch && git add . && git commit -m 'new version' && git push",
     "dev": "rollup -c -w",
