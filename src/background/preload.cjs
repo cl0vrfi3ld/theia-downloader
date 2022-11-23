@@ -1,7 +1,7 @@
 // console.log("hi");
-const meta = require("../../package.json");
+//const meta = require("../../package.json");
 
-const { ipcRenderer, contextBridge } = require("electron");
+const { ipcRenderer, contextBridge, app } = require("electron");
 
 const validChannels = [
   "start_download",
@@ -41,5 +41,5 @@ contextBridge.exposeInMainWorld("env", {
   chromium: () => process.versions.chrome,
   electron: () => process.versions.electron,
   platform: () => process.platform,
-  app_version: () => meta.version,
+  app_version: () => app.getVersion(),
 });
