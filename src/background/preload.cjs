@@ -1,4 +1,5 @@
 // console.log("hi");
+const meta = require("../../package.json");
 
 const { ipcRenderer, contextBridge } = require("electron");
 
@@ -8,6 +9,8 @@ const validChannels = [
   "get_save_dir",
   "alert",
   "progress_update",
+  "update_available",
+  "upgrade",
 ];
 contextBridge.exposeInMainWorld("ipc", {
   send: (channel, data) => {
@@ -31,4 +34,12 @@ contextBridge.exposeInMainWorld("ipc", {
       ipcRenderer.on(channel, (event, ...args) => func(...args));
     }
   },
+});
+
+contextBridge.exposeInMainWorld("env", {
+  node: () => process.versions.node,
+  chromium: () => process.versions.chrome,
+  electron: () => process.versions.electron,
+  platform: () => process.platform,
+  app_version: () => meta.version,
 });
