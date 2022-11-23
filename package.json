@@ -1,7 +1,7 @@
 {
   "name": "theia-downloader",
   "description": "A cool little youtube downloader",
-  "repository": "https://github.com/1MaddieX/theia-app",
+  "repository": "https://github.com/cl0vrfi3ld/theia-app",
   "author": {
     "name": "Cl0vr",
     "url": "https://cl0vr.co/"
@@ -19,7 +19,7 @@
     "full-send-pre": "yarn build-js && EP_PRE_RELEASE=true yarn release",
     "increment-version": "versiony package.json --patch && git add . && git commit -m 'new version' && git push",
     "dev": "rollup -c -w",
-    "start": "NODE_ENV=development electron .",
+    "start": "electron .",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "postinstall": "electron-builder install-app-deps"
   },
@@ -63,7 +63,7 @@
     "@tsconfig/svelte": "^2.0.0",
     "autoprefixer": "^10.4.0",
     "dotenv": "^16.0.3",
-    "electron": "^16.0.7",
+    "electron": "^21.3.0",
     "electron-builder": "^22.14.5",
     "inquirer": "^8.2.0",
     "node-fetch": "^3.1.0",
