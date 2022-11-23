@@ -33,12 +33,20 @@ const createWindow = () => {
     height: 800,
     minWidth: 345,
     minHeight: 600,
-    titleBarStyle: "hidden",
+    titleBarStyle: process.platform === "darwin" ? "hidden" : "hidden",
+    titleBarOverlay: process.platform === "win32" && {
+      color: "#000",
+      symbolColor: "#fff",
+      height: 28,
+    },
+    autoHideMenuBar: true,
+
     // transparent: true,
 
     webPreferences: {
       preload: path.join(__dirname, "preload.cjs"),
       contextIsolation: true,
+      webgl: true,
     },
   });
 

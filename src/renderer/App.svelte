@@ -34,7 +34,15 @@
 </script>
 
 <main class={`bg-main-grad h-screen bg_${bgState}`}>
-  <div class="w-screen h-[26px]" style=" -webkit-app-region: drag;" />
+  <div class="w-screen h-[29px] bg-black" style=" -webkit-app-region: drag;">
+    <span class="h-full flex items-center text-white font-[system-ui] text-sm"
+      ><img
+        src="icon.png"
+        alt="Theia App Icon"
+        class="h-[24px] px-[4px] py-0"
+      /><span>Theia</span></span
+    >
+  </div>
 
   <Router {routes} />
 
