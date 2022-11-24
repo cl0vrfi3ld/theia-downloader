@@ -34,14 +34,18 @@
 </script>
 
 <main class={`bg-main-grad h-screen bg_${bgState}`}>
-  <div class="w-screen h-[29px] bg-black" style=" -webkit-app-region: drag;">
-    <span class="h-full flex items-center text-white font-[system-ui] text-sm"
-      ><img
-        src="icon.png"
-        alt="Theia App Icon"
-        class="h-[24px] px-[4px] py-0"
-      /><span>Theia</span></span
-    >
+  <div
+    class={`w-screen h-[29px] ${window.env.platform === "win32" && "bg-black"}`}
+    style=" -webkit-app-region: drag;"
+  >
+    {#if window.env.platform === "win32"}
+      <span class="h-full flex items-center text-white font-[system-ui] text-sm"
+        ><img
+          src="icon.png"
+          alt="Theia App Icon"
+          class="h-[24px] px-[4px] py-0"
+        /><span>Theia</span></span
+      >{/if}
   </div>
 
   <Router {routes} />
