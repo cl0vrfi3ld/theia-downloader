@@ -4,6 +4,9 @@
   import Setup from "./pages/setup.svelte";
   // import Login from "./pages/login.svelte";
   // import ApiController from "./components/APIController.svelte";
+
+  // import app_meta from '../../'
+
   import Router, { push } from "svelte-spa-router";
   import { setContext } from "svelte";
 
@@ -50,7 +53,15 @@
 
   <Router {routes} />
 
-  <div class="w-screen h-[26px] absolute bottom-0" />
+  <div class="w-screen h-[26px] absolute bottom-0">
+    <span
+      class="h-full px-[6px] flex items-center text-white font-[system-ui] text-sm"
+    >
+      {#await window.ipc.invoke("get_app_version") then version}
+        {window.env.platform()}-{version} {isDev ? "development" : "prerelease"}
+      {/await}
+    </span> ''
+  </div>
 </main>
 
 <style global lang="postcss">

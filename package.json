@@ -6,7 +6,7 @@
     "name": "Cl0vr",
     "url": "https://cl0vr.co/"
   },
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": true,
   "main": "src/background/main.js",
   "homepage": "https://theia.rocks",

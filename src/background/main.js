@@ -89,6 +89,11 @@ ipcMain.handle("get_save_dir", async (eve, args) => {
   return selectedDir.filePaths[0];
 });
 
+ipcMain.handle("get_app_version", async (eve, args) => {
+  const app_version = app.getVersion();
+  return app_version;
+});
+
 // like browser `alert()`, but native
 ipcMain.on("alert", (eve, args) => {
   dialog.showMessageBoxSync(mainWindow, {

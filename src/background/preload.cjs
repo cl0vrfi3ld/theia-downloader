@@ -7,6 +7,7 @@ const validChannels = [
   "start_download",
   "download_finished",
   "get_save_dir",
+  "get_app_version",
   "alert",
   "progress_update",
   "update_available",
@@ -41,5 +42,4 @@ contextBridge.exposeInMainWorld("env", {
   chromium: () => process.versions.chrome,
   electron: () => process.versions.electron,
   platform: () => process.platform,
-  app_version: () => app.getVersion(),
 });
