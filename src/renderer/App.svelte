@@ -60,7 +60,7 @@
       {#await window.ipc.invoke("get_app_version") then version}
         {window.env.platform()}-{version} {isDev ? "development" : "prerelease"}
       {/await}
-    </span> ''
+    </span>
   </div>
 </main>
 
