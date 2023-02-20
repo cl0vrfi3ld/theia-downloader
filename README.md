@@ -2,8 +2,7 @@
 
 ![theia logo on a blue gradient background](https://arweave.net/GXR6QxmsIiqR1O0XOwswPtwLwC5o8GKtLwXKy2OOW5w)
 
-theia is a youtube downloader application with built-in music piracy support. it even features the prettiest damn gradients of any downloader ever seen. gah, i sound like an apple commercial....
-
+theia is a youtube downloader application with built-in music piracy support. it even features the prettiest damn gradients of any downloader ever seen
 # a fair warning
 
 this code is MESSY! this was intended as a personal exercise to learn svelte and electron, so please note this was my first time working with these tools. however, should you want to, pr's are always welcome to tidy things up, or even to add new features.

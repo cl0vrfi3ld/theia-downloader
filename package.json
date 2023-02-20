@@ -21,7 +21,9 @@
     "dev": "rollup -c -w",
     "start": "electron .",
     "check": "svelte-check --tsconfig ./tsconfig.json",
-    "postinstall": "electron-builder install-app-deps"
+    "postinstall": "electron-builder install-app-deps",
+    "tag-pre": "",
+    "tag": ""
   },
   "build": {
     "productName": "Theia",
