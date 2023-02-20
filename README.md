@@ -5,6 +5,7 @@
 theia is a youtube downloader application with built-in music piracy support. it even features the prettiest damn gradients of any downloader ever seen. gah, i sound like an apple commercial....
 
 how's she doin'? i'm so glad you asked! why don't you see for yourself!
+
 [![Build](https://github.com/cl0vrfi3ld/theia-app/actions/workflows/build.yml/badge.svg?branch=prerelease)](https://github.com/cl0vrfi3ld/theia-app/actions/workflows/build.yml)
 
 # a fair warning
