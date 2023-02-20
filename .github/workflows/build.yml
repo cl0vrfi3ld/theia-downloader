@@ -48,6 +48,8 @@ jobs:
           node-version: 14
       - name: install dependencies
         run: yarn
+      - name: yarn config set script-shell powershell
+        run: yarn
       - name: build
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
