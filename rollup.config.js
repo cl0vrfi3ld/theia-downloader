@@ -47,9 +47,9 @@ export default {
   input: "src/renderer/main.ts",
   output: {
     sourcemap: true,
-    format: "iife",
+    format: "es",
     name: "app",
-    file: "src/renderer/public/build/bundle.js",
+    dir: "src/renderer/public/build",
   },
   plugins: [
     // postcssrc(),
