@@ -7,7 +7,8 @@
 
   // import app_meta from '../../'
 
-  import Router, { push } from "svelte-spa-router";
+  import Router, { push, location } from "svelte-spa-router";
+  import { wrap } from "svelte-spa-router/wrap";
   import { setContext } from "svelte";
 
   import { onMount } from "svelte";
@@ -17,6 +18,7 @@
   let bgState = 1;
   //process.env.NODE_ENV === "development" &&
   onMount(() => {
+    console.log($location);
     console.log(isDev);
     console.log(pageEnv);
     // if (isDev) localStorage.clear();
@@ -27,6 +29,9 @@
     "/": Home,
     "/download/:justSetup?": Download,
     "/setup": Setup,
+    "/updating": wrap({
+      asyncComponent: () => import("./pages/updating.svelte"),
+    }),
     // "/login": Login,
   };
 
@@ -41,7 +46,7 @@
     class={`w-screen h-[29px] ${window.env.platform === "win32" && "bg-black"}`}
     style=" -webkit-app-region: drag;"
   >
-    {#if window.env.platform === "win32"}
+    {#if window.env.platform === "win32" && $location !== "/updating"}
       <span class="h-full flex items-center text-white font-[system-ui] text-sm"
         ><img
           src="icon.png"
@@ -53,15 +58,17 @@
 
   <Router {routes} />
 
-  <div class="w-screen h-[26px] absolute bottom-0">
-    <span
-      class="h-full px-[6px] flex items-center text-white font-[system-ui] text-sm"
-    >
-      {#await window.ipc.invoke("get_app_version") then version}
-        {window.env.platform()}-{version} {isDev ? "development" : "prerelease"}
-      {/await}
-    </span>
-  </div>
+  {#if $location !== "/updating"}
+    <div class="w-screen h-[26px] absolute bottom-0">
+      <span
+        class="h-full px-[6px] flex items-center text-white font-[system-ui] text-sm"
+      >
+        {#await window.ipc.invoke("get_app_version") then version}
+          {version} {window.env.platform()}
+        {/await}
+      </span>
+    </div>
+  {/if}
 </main>
 
 <style global lang="postcss">
@@ -164,6 +171,14 @@
     --p1: -38.05%;
     --hex2: #000000;
     --p2: 126.08%;
+  }
+
+  .bg_7 {
+    --a: 236deg;
+    --hex1: #e363c7;
+    --p1: 31%;
+    --hex2: #00d4ff;
+    --p2: 100%;
   }
   /*.theia-btn {
     @apply;

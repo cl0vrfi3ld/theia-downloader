@@ -6,7 +6,7 @@
     "name": "Cl0vr",
     "url": "https://cl0vr.co/"
   },
-  "version": "0.1.1",
+  "version": "0.1.4-dev",
   "private": true,
   "main": "src/background/main.js",
   "homepage": "https://theia.rocks",
@@ -17,8 +17,10 @@
     "release": "source ci.env && electron-builder",
     "full-send": "yarn build-js && yarn release",
     "full-send-pre": "yarn build-js && cross-env EP_PRE_RELEASE=true yarn release",
+    "publish:dev": "source .local.env && yarn dist --publish always --config.publish.provider=s3 --config.publish.endpoint=http://127.0.0.1:9000  --config.publish.bucket=theia-downloader-updates.test",
+    "local-s3": "docker compose -f ./utils/local-s3.docker-compose.yml up",
     "increment-version": "versiony package.json --patch && git add . && git commit -m 'new version' && git push",
-    "dev": "rollup -c -w",
+    "dev": "cross-env NODE_ENV=development rollup -c -w",
     "start": "electron .",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "postinstall": "electron-builder install-app-deps",
@@ -30,8 +32,7 @@
     "appId": "rocks.theia.client",
     "copyright": "Copyright © 2022 Cl0vr",
     "mac": {
-      "category": "public.app-category.music",
-      "target": "dmg"
+      "category": "public.app-category.music"
     },
     "win": {
       "target": "nsis",
@@ -95,6 +96,7 @@
   "dependencies": {
     "electron-log": "^4.4.5",
     "electron-store": "^8.0.1",
+    "electron-updater": "^5.3.0",
     "gun": "^0.2020.1235",
     "lodash": "^4.17.21",
     "sass": "^1.45.0",

@@ -3,17 +3,9 @@
 
 const { ipcRenderer, contextBridge, app } = require("electron");
 
-const validChannels = [
-  "start_download",
-  "download_finished",
-  "get_save_dir",
-  "get_app_version",
-  "alert",
-  "progress_update",
-  "show_update_window",
-  "update_available",
-  "upgrade",
-];
+/*
+const validChannels = [];
+
 contextBridge.exposeInMainWorld("ipc", {
   send: (channel, data) => {
     if (validChannels.includes(channel)) {
@@ -37,6 +29,7 @@ contextBridge.exposeInMainWorld("ipc", {
     }
   },
 });
+*/
 
 contextBridge.exposeInMainWorld("env", {
   node: () => process.versions.node,

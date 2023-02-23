@@ -1,12 +1,22 @@
 const { app, BrowserWindow, ipcMain, dialog } = require("electron");
 const path = require("path");
 const nativeLog = require("electron-log");
+const { autoUpdater } = require("electron-updater");
+
 // const fs = require("fs");
 
 const ytcog = require("ytcog");
-// const ytdl = require("ytdl-core");
 
 const { URL } = require("url");
+const { electron } = require("process");
+
+// updater cfg
+autoUpdater.autoDownload = false;
+autoUpdater.allowPrerelease =
+  process.env.EP_PRE_RELEASE === "true" ? true : false;
+
+autoUpdater.logger = require("electron-log");
+autoUpdater.logger.transports.file.level = "info";
 
 /** @type {import('electron').BrowserWindow} */
 let mainWindow;
@@ -18,22 +28,26 @@ console.log = nativeLog.log;
 Object.assign(console, nativeLog.functions);
 
 nativeLog.catchErrors();
+
+// log startup and start timer
+console.log("starting the theia downloader");
+console.time("theia-startup");
 // widevine stuff
 /*
 app.commandLine.appendSwitch("widevine-cdm-path", "../resources");
 app.commandLine.appendSwitch("widevine-cdm-version", "4.10.2391.0");
 */
-console.log(__dirname);
+// console.log(__dirname);
 
-const createWindow = () => {
+const createMainWindow = () => {
   // Create the browser window.
   console.log(process.env.NODE_ENV);
   mainWindow = new BrowserWindow({
     width: 1000,
     height: 800,
-    minWidth: 345,
+    minWidth: 460,
     minHeight: 600,
-    titleBarStyle: process.platform === "darwin" ? "hidden" : "hidden",
+    titleBarStyle: "hidden",
     titleBarOverlay: process.platform === "win32" && {
       color: "#000",
       symbolColor: "#fff",
@@ -50,25 +64,91 @@ const createWindow = () => {
     },
   });
 
-  // and load the index.html of the app.
+  // load app context
   mainWindow.loadFile("src/renderer/public/index.html");
-  // mainWindow.loadURL("https://shaka-player-demo.appspot.com/");
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
+  return mainWindow;
+};
+
+const createUpdateWindow = (asDemo) => {
+  console.log(process.env.NODE_ENV, process.env.ROLLUP_WATCH);
+  const updateWindow = new BrowserWindow({
+    width: 300,
+    height: 350,
+    frame: false,
+    resizable: false,
+    minimizable: false,
+    closable: process.env.NODE_ENV == "development" ? true : false,
+    webPreferences: {
+      preload: path.join(__dirname, "updatePreload.cjs"),
+      contextIsolation: true,
+    },
+  });
+  updateWindow.loadFile("src/renderer/public/index.html", {
+    hash: "#/updating",
+    query: {
+      demo: asDemo ? "1" : "0",
+    },
+  });
+
+  return updateWindow;
+};
+
+const handleLaunch = async ({ updateWin, mainWin }) => {
+  const availUp = await autoUpdater.checkForUpdates();
+
+  console.log(availUp?.updateInfo);
+
+  console.log(availUp?.updateInfo.version.split("-")[0].replace(".", ""));
+
+  if (
+    availUp?.updateInfo &&
+    availUp?.updateInfo.version.split("-")[0].replace(".", "") >
+      app.getVersion().split("-")[0].replace(".", "")
+  ) {
+    console.log("a newer version of the client has been found, updating...");
+    const upWin = updateWin();
+
+    await autoUpdater.downloadUpdate(/*availUp.cancellationToken*/);
+
+    autoUpdater.quitAndInstall(true, true);
+  } else {
+    mainWin();
+
+    console.log("started in");
+    console.timeEnd("theia-startup");
+  }
+  /* 
+  const noUp = new Promise((res, rej) => {
+    autoUpdater.once("update-not-available", res(true));
+  });
+
+  
+  const availUp = new Promise((res, rej) => {
+    autoUpdater.once("update-available", res(true));
+  });
+  
+
+  const cachedUp = new Promise((res, rej) => {
+    autoUpdater.once("update-downloaded", res(true));
+  }); */
 };
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
-  createWindow();
+  handleLaunch({ updateWin: createUpdateWindow, mainWin: createMainWindow });
 
+  /* 
   app.on("activate", () => {
     // On macOS it's common to re-create a window in the app when the
     // dock icon is clicked and there are no other windows open.
-    if (BrowserWindow.getAllWindows().length === 0) createWindow();
+    if (BrowserWindow.getAllWindows().length === 0) createMainWindow();
   });
+  */
 });
 
 // Quit when all windows are closed, except on macOS. There, it's common
@@ -92,6 +172,18 @@ ipcMain.handle("get_save_dir", async (eve, args) => {
 ipcMain.handle("get_app_version", async (eve, args) => {
   const app_version = app.getVersion();
   return app_version;
+});
+
+ipcMain.handle("show_update_window", async () => {
+  const upWin = createUpdateWindow();
+
+  await new Promise((res, rej) => {
+    upWin.once("ready-to-show", () => res());
+  });
+
+  // upWin.show();
+
+  console.log("attempted to launch update window preview");
 });
 
 // like browser `alert()`, but native

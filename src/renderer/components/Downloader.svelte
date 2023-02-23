@@ -46,6 +46,11 @@
       quality: fidelity,
     });
   };
+
+  const doDebugShow = async () => {
+    console.log("attempted to invoke update window preview");
+    await ipcRenderer.invoke("show_update_window");
+  };
   /*ipcRenderer.on("save_dir_selected", (arg) => {
     console.log(arg);
     path = arg[0];
@@ -146,10 +151,14 @@
       <h2>progress: {progress}%</h2>
       <h2>path: {path}</h2>
 
-      <button
+      <TButton
+        disabled={false}
         on:click={() => {
           user.get("preferences").get("save_dir").put(null);
-        }}>clear dir</button
+        }}>clear dir</TButton
+      >
+      <TButton disabled={false} on:click={doDebugShow}
+        >show update window</TButton
       >
     </div>
   {/if}
