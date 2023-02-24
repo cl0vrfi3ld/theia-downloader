@@ -43,8 +43,8 @@ const createMainWindow = () => {
   // Create the browser window.
   console.log(process.env.NODE_ENV);
   mainWindow = new BrowserWindow({
-    width: 1000,
-    height: 800,
+    width: 720,
+    height: 600,
     minWidth: 460,
     minHeight: 600,
     titleBarStyle: "hidden",
@@ -97,11 +97,12 @@ const createUpdateWindow = (asDemo) => {
 };
 
 const handleLaunch = async ({ updateWin, mainWin }) => {
+  // check for updates
   const availUp = await autoUpdater.checkForUpdates();
 
-  console.log(availUp?.updateInfo);
+  /* console.log(availUp?.updateInfo);
 
-  console.log(availUp?.updateInfo.version.split("-")[0].replace(".", ""));
+  console.log(availUp?.updateInfo.version.split("-")[0].replace(".", "")); */
 
   if (
     availUp?.updateInfo &&
@@ -109,31 +110,32 @@ const handleLaunch = async ({ updateWin, mainWin }) => {
       app.getVersion().split("-")[0].replace(".", "")
   ) {
     console.log("a newer version of the client has been found, updating...");
+    // show updating screen
     const upWin = updateWin();
 
-    await autoUpdater.downloadUpdate(/*availUp.cancellationToken*/);
+    // log invocation time
+    console.log("invocation completed in");
+    console.timeEnd("theia-startup");
 
-    autoUpdater.quitAndInstall(true, true);
+    // download update
+    autoUpdater.downloadUpdate(/*availUp.cancellationToken*/);
+
+    // install update after downloaded
+    autoUpdater.on("update-downloaded", (updateInfo) => {
+      autoUpdater.quitAndInstall(true, true);
+      // temporary bodge as quitAndInstall refuses to quit
+      setTimeout(() => {
+        app.exit();
+      }, 10000);
+    });
   } else {
+    // update unavailable and/or app is on latest version
+    // launch as normal
     mainWin();
 
     console.log("started in");
     console.timeEnd("theia-startup");
   }
-  /* 
-  const noUp = new Promise((res, rej) => {
-    autoUpdater.once("update-not-available", res(true));
-  });
-
-  
-  const availUp = new Promise((res, rej) => {
-    autoUpdater.once("update-available", res(true));
-  });
-  
-
-  const cachedUp = new Promise((res, rej) => {
-    autoUpdater.once("update-downloaded", res(true));
-  }); */
 };
 
 // This method will be called when Electron has finished
@@ -141,25 +143,14 @@ const handleLaunch = async ({ updateWin, mainWin }) => {
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
   handleLaunch({ updateWin: createUpdateWindow, mainWin: createMainWindow });
-
-  /* 
-  app.on("activate", () => {
-    // On macOS it's common to re-create a window in the app when the
-    // dock icon is clicked and there are no other windows open.
-    if (BrowserWindow.getAllWindows().length === 0) createMainWindow();
-  });
-  */
 });
 
-// Quit when all windows are closed, except on macOS. There, it's common
-// for applications and their menu bar to stay active until the user quits
-// explicitly with Cmd + Q.
+// Quit when all windows are closed
 app.on("window-all-closed", () => {
-  if (process.platform !== "darwin") app.quit();
+  app.quit();
 });
 
 // ipc time!
-
 // prompts user to choose a folder to save music to, then returns the path to the renderer
 ipcMain.handle("get_save_dir", async (eve, args) => {
   const selectedDir = await dialog.showOpenDialog(mainWindow, {

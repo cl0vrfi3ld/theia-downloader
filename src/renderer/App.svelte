@@ -179,6 +179,8 @@
     --p1: 31%;
     --hex2: #00d4ff;
     --p2: 100%;
+
+    /* animation: bgLoading 5s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite; */
   }
   /*.theia-btn {
     @apply;
