@@ -6,7 +6,7 @@
     "name": "Cl0vr",
     "url": "https://cl0vr.co/"
   },
-  "version": "0.1.4-dev",
+  "version": "0.1.2-dev",
   "private": true,
   "main": "src/background/main.js",
   "homepage": "https://theia.rocks",
@@ -67,8 +67,9 @@
     "autoprefixer": "^10.4.0",
     "cross-env": "^7.0.3",
     "dotenv": "^16.0.3",
-    "electron": "^21.3.0",
+    "electron": "^23.1.1",
     "electron-builder": "^23.6.0",
+    "electron-notarize": "^1.2.2",
     "inquirer": "^8.2.0",
     "node-fetch": "^3.1.0",
     "postcss": "^8",
@@ -94,8 +95,8 @@
     "versiony": "^2.0.1"
   },
   "dependencies": {
-    "electron-log": "^4.4.5",
-    "electron-store": "^8.0.1",
+    "electron-log": "^5.0.0-beta.16",
+    "electron-store": "^8.1.0",
     "electron-updater": "^5.3.0",
     "gun": "^0.2020.1235",
     "lodash": "^4.17.21",
