@@ -10,6 +10,7 @@
   "private": true,
   "main": "src/background/main.js",
   "homepage": "https://theia.rocks",
+  "license": "MIT",
   "scripts": {
     "build-js": "cross-env NODE_ENV=production rollup -c",
     "pack": "yarn build-js && electron-builder --dir",
@@ -27,37 +28,6 @@
     "tag-pre": "",
     "tag": ""
   },
-  "build": {
-    "productName": "Theia",
-    "appId": "rocks.theia.client",
-    "copyright": "Copyright © 2022 Cl0vr",
-    "mac": {
-      "category": "public.app-category.music"
-    },
-    "win": {
-      "target": "nsis",
-      "artifactName": "${productName} Installer v${version}.${ext}"
-    },
-    "dmg": {
-      "title": "Install Theia",
-      "window": {
-        "width": 540,
-        "height": 380
-      },
-      "contents": [
-        {
-          "x": 110,
-          "y": 190
-        },
-        {
-          "x": 430,
-          "y": 190,
-          "type": "link",
-          "path": "/Applications"
-        }
-      ]
-    }
-  },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-json": "^4.1.0",
@@ -69,7 +39,7 @@
     "dotenv": "^16.0.3",
     "electron": "^23.1.1",
     "electron-builder": "^23.6.0",
-    "electron-notarize": "^1.2.2",
+    "@electron/notarize": "^1.2.2",
     "inquirer": "^8.2.0",
     "node-fetch": "^3.1.0",
     "postcss": "^8",
@@ -90,12 +60,13 @@
     "svelte-check": "^2.0.0",
     "svelte-preprocess": "^4.9.8",
     "tailwindcss": "^3.0.1",
+    "toml": "^3.0.0",
     "tslib": "^2.0.0",
     "typescript": "^4.0.0",
     "versiony": "^2.0.1"
   },
   "dependencies": {
-    "electron-log": "^5.0.0-beta.16",
+    "electron-log": "4",
     "electron-store": "^8.1.0",
     "electron-updater": "^5.3.0",
     "gun": "^0.2020.1235",

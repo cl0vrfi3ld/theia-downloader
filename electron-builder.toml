@@ -1,0 +1,29 @@
+# configuration file for `electron-builder` options
+# i wanted these in a separate file for readability/simplicity, which is also why i went with toml
+productName = "Theia"
+appId = "rocks.theia.client"
+copyright = "Copyright © 2022 Cl0vr"
+
+[mac]
+category = "public.app-category.music"
+
+[dmg]
+title = "Install Theia"
+
+[dmg.window]
+width = 540
+height = 380
+
+[[dmg.contents]]
+x = 110
+y = 190
+
+[[dmg.contents]]
+x = 430
+y = 190
+type = "link"
+path = "/Applications"
+
+[win]
+target = "nsis"
+artifactName = "Install ${productName} v${version}.${ext}"
