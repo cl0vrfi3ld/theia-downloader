@@ -7,6 +7,7 @@
   const headers = [
     "go wild",
     "don't worry, i won't snitch",
+    "don't worry, i won't narc",
     "jammin'",
     "bleep bloop",
     "yes, i'm sentient",
@@ -21,6 +22,13 @@
     "how dare you awaken me",
     "y'arr, we be pirating the music industry!",
     "ah, music piracy, the classic american pasttime",
+    "dang gril you lookin' munchy",
+    "let the music take you away",
+    "time to drop the needle",
+    "get your pirate on, baby",
+    "sing your heart out 'cuz i'm listening",
+    "i am in your walls",
+    "that's what she said",
   ];
 
   export let params = {};
@@ -36,9 +44,7 @@
   <h1 class=" top-24 absolute text-center text-white text-4xl w-full">
     {params.justSetup ? "download" : sample(headers)}
   </h1>
-  <div
-    class="flex flex-col items-center justify-center align-middle justify-evenly h-full"
-  >
+  <div class="flex flex-col items-center justify-center align-middle h-full">
     <Downloader />
   </div>
   <button
