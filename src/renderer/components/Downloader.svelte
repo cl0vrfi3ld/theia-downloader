@@ -13,7 +13,7 @@
   let context: AppContext = getContext("AppContext");
   let isDev = IS_DEV;
   let url: string;
-  let path: string;
+  let path = "";
   let status: string = "download";
   let progress: number = 0;
   let format: string = "flac";

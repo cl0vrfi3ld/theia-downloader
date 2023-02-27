@@ -15,12 +15,17 @@
 
   const isDev = IS_DEV;
   const pageEnv = DEV_PAGE;
-  let bgState = 1;
+  $: bgState = 1;
+  let platform;
   //process.env.NODE_ENV === "development" &&
   onMount(() => {
     console.log($location);
     console.log(isDev);
     console.log(pageEnv);
+
+    platform = window.env.platform();
+    console.log(platform);
+
     // if (isDev) localStorage.clear();
     if (pageEnv) push(`/${pageEnv}`);
   });
@@ -43,10 +48,12 @@
 
 <main class={`bg-main-grad h-screen bg_${bgState}`}>
   <div
-    class={`w-screen h-[29px] ${window.env.platform === "win32" && "bg-black"}`}
+    class={`w-screen h-[29px] ${
+      platform === "win32" && $location !== "/updating" ? "bg-black" : ""
+    }`}
     style=" -webkit-app-region: drag;"
   >
-    {#if window.env.platform === "win32" && $location !== "/updating"}
+    {#if platform === "win32" && $location !== "/updating"}
       <span class="h-full flex items-center text-white font-[system-ui] text-sm"
         ><img
           src="icon.png"
@@ -64,7 +71,7 @@
         class="h-full px-[6px] flex items-center text-white font-[system-ui] text-sm"
       >
         {#await window.ipc.invoke("get_app_version") then version}
-          {version} {window.env.platform()}
+          {version} {platform}
         {/await}
       </span>
     </div>
