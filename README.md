@@ -5,7 +5,7 @@
 theia is a youtube downloader application with built-in music piracy support. it even features the prettiest damn gradients of any downloader ever seen
 # a fair warning
 
-this code is MESSY! this was intended as a personal exercise to learn svelte and electron, so please note this was my first time working with these tools. however, should you want to, pr's are always welcome to tidy things up, or even to add new features.
+this code is MESSY! this was intended as a personal exercise to learn svelte and electron, so please note this was my first time working with these tools. however, should you want to contribute to this project, pr's are always welcome.
 
 i'm also currently a student, which restricts the time i have to "manage" this repo, meaning it may take me a bit to respond to your issue/pr.
 

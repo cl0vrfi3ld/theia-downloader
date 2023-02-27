@@ -2,7 +2,7 @@
 # i wanted these in a separate file for readability/simplicity, which is also why i went with toml
 productName = "Theia"
 appId = "rocks.theia.client"
-copyright = "Copyright © 2022 Cl0vr"
+copyright = "Copyright © 2023 Cl0vr"
 
 [mac]
 category = "public.app-category.music"
@@ -23,6 +23,9 @@ x = 430
 y = 190
 type = "link"
 path = "/Applications"
+
+#[linux]
+#target = "flatpak"
 
 [win]
 target = "nsis"
