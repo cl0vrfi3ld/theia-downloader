@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain, dialog } = require("electron");
+const { app, session, BrowserWindow, ipcMain, dialog } = require("electron");
 const path = require("path");
 const nativeLog = require("electron-log");
 const { autoUpdater } = require("electron-updater");
@@ -131,11 +131,35 @@ const handleLaunch = async ({ updateWin, mainWin }) => {
   }
 };
 
+// enable sandbox for all renderer processes
+app.enableSandbox();
+
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
   handleLaunch({ updateWin: createUpdateWindow, mainWin: createMainWindow });
+  // set csp
+  session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
+    callback({
+      responseHeaders: {
+        ...details.responseHeaders,
+        "Content-Security-Policy": ["default-src 'self'"],
+      },
+    });
+  });
+});
+
+// block app from navigating away from embedded content
+app.on("web-contents-created", (event, contents) => {
+  contents.on("will-navigate", (event, navigationUrl) => {
+    const parsedUrl = new URL(navigationUrl);
+
+    // if next location is not a file, reject. i need to work on improving the filter to verify file contents
+    if (parsedUrl.origin !== "file://") {
+      event.preventDefault();
+    }
+  });
 });
 
 // Quit when all windows are closed
