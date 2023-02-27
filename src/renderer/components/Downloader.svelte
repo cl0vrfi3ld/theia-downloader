@@ -11,7 +11,7 @@
 
   const ipcRenderer: IpcRenderer = window.ipc;
   let context: AppContext = getContext("AppContext");
-  let isDev = IS_DEV;
+  let isDev = IS_DEV; // dynamically inserted variable from rollup
   let url: string;
   let path = "";
   let status: string = "download";

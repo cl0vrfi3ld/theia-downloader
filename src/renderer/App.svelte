@@ -2,19 +2,12 @@
   import Download from "./pages/download.svelte";
   import Home from "./pages/index.svelte";
   import Setup from "./pages/setup.svelte";
-  // import Login from "./pages/login.svelte";
-  // import ApiController from "./components/APIController.svelte";
-
-  // import app_meta from '../../'
-
   import Router, { push, location } from "svelte-spa-router";
   import { wrap } from "svelte-spa-router/wrap";
-  import { setContext } from "svelte";
-
-  import { onMount } from "svelte";
+  import { setContext, onMount } from "svelte";
 
   const isDev = IS_DEV;
-  const pageEnv = DEV_PAGE;
+  const pageEnv = DEV_PAGE; // page specified in env vars when in dev mode instead of following regular auth flow
   $: bgState = 1;
   let platform;
   //process.env.NODE_ENV === "development" &&

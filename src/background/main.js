@@ -8,7 +8,6 @@ const { autoUpdater } = require("electron-updater");
 const ytcog = require("ytcog");
 
 const { URL } = require("url");
-const { electron } = require("process");
 
 // updater cfg
 autoUpdater.autoDownload = false;
@@ -32,12 +31,6 @@ nativeLog.catchErrors();
 // log startup and start timer
 console.log("starting the theia downloader");
 console.time("theia-startup");
-// widevine stuff
-/*
-app.commandLine.appendSwitch("widevine-cdm-path", "../resources");
-app.commandLine.appendSwitch("widevine-cdm-version", "4.10.2391.0");
-*/
-// console.log(__dirname);
 
 const createMainWindow = () => {
   // Create the browser window.

@@ -10,7 +10,7 @@
       new URLSearchParams(location.search).get("demo") == "1" ? true : false;
     console.log(isDemo);
 
-    context.setBg(7); // TODO: make bg continually spin to indicate progress
+    context.setBg(7);
   });
 </script>
 
