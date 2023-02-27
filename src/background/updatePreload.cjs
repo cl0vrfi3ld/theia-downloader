@@ -3,17 +3,8 @@
 
 const { ipcRenderer, contextBridge, app } = require("electron");
 
-const validChannels = [
-  "start_download",
-  "download_finished",
-  "get_save_dir",
-  "get_app_version",
-  "alert",
-  "progress_update",
-  "show_update_window",
-  "update_available",
-  "upgrade",
-];
+/*
+const validChannels = [];
 
 contextBridge.exposeInMainWorld("ipc", {
   send: (channel, data) => {
@@ -33,11 +24,12 @@ contextBridge.exposeInMainWorld("ipc", {
   },
   on: (channel, func) => {
     if (validChannels.includes(channel)) {
-      // strip event as it includes `sender` and is a security risk
+      // Strip event as it includes `sender` and is a security risk
       ipcRenderer.on(channel, (event, ...args) => func(...args));
     }
   },
 });
+*/
 
 contextBridge.exposeInMainWorld("env", {
   node: () => process.versions.node,

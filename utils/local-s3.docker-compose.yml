@@ -1,0 +1,16 @@
+---
+version: '3'
+
+services:
+  minio:
+    container_name: autoupdate-test-s3
+    image: minio/minio 
+    restart: always
+    command: server /data --console-address ":9001"
+    environment:
+        - TZ=UTC
+    ports:
+      - "9000:9000"  # API
+      - "9001:9001"  # Console
+    # volumes:
+
