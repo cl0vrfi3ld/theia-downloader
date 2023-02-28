@@ -59,6 +59,7 @@
     if (arg.success) {
       status = "finished";
       progress = 0;
+      dlbtnDisabled = false;
 
       setTimeout(() => {
         status = "download";
