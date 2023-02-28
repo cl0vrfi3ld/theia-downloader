@@ -4,6 +4,8 @@ productName = "Theia"
 appId = "co.cl0vr.theia.dl"
 copyright = "Copyright © 2023 cl0vr"
 
+generateUpdatesFilesForAllChannels = true
+
 afterSign = "./utils/notarize_config.js"
 
 [mac]

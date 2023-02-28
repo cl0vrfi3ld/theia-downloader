@@ -7,7 +7,7 @@
     "url": "https://cl0vr.co/",
     "email": "47996003+cl0vrfi3ld@users.noreply.github.com"
   },
-  "version": "0.1.4-prerelease",
+  "version": "0.1.4-alpha",
   "private": true,
   "main": "src/background/main.js",
   "homepage": "https://theia.cl0vr.co",
