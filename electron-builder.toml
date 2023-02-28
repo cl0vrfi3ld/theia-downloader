@@ -4,8 +4,13 @@ productName = "Theia"
 appId = "rocks.theia.client"
 copyright = "Copyright © 2023 cl0vr"
 
+afterSign = "./utils/notarize_config.js"
+
 [mac]
 category = "public.app-category.music"
+hardenedRuntime = true
+entitlements = "./build/entitlements.mac.plist"
+entitlementsInherit = "./build/entitlements.mac.plist"
 
 [dmg]
 title = "Install Theia"
@@ -24,8 +29,8 @@ y = 190
 type = "link"
 path = "/Applications"
 
-#[linux]
-#target = "flatpak"
+# [linux]
+# target = ["AppImage", "deb", "tar.gz"]
 
 [win]
 target = "nsis"
