@@ -29,8 +29,8 @@ y = 190
 type = "link"
 path = "/Applications"
 
-#[linux]
-#target = "flatpak"
+[linux]
+target = ["AppImage", "flatpak", "tar.gz"]
 
 [win]
 target = "nsis"
