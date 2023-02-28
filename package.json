@@ -7,10 +7,10 @@
     "url": "https://cl0vr.co/",
     "email": "47996003+cl0vrfi3ld@users.noreply.github.com"
   },
-  "version": "0.1.4-dev",
+  "version": "0.1.4-prerelease",
   "private": true,
   "main": "src/background/main.js",
-  "homepage": "https://theia.rocks",
+  "homepage": "https://theia.cl0vr.co",
   "license": "MIT",
   "scripts": {
     "build-js": "cross-env NODE_ENV=production rollup -c",

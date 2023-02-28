@@ -1,7 +1,7 @@
 # configuration file for `electron-builder` options
 # i wanted these in a separate file for readability/simplicity, which is also why i went with toml
 productName = "Theia"
-appId = "rocks.theia.client"
+appId = "co.cl0vr.theia.dl"
 copyright = "Copyright © 2023 cl0vr"
 
 afterSign = "./utils/notarize_config.js"
