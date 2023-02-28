@@ -10,7 +10,7 @@
   "version": "0.1.4-prerelease",
   "private": true,
   "main": "src/background/main.js",
-  "homepage": "https://theia.rocks",
+  "homepage": "https://theia.cl0vr.co",
   "license": "MIT",
   "scripts": {
     "build-js": "cross-env NODE_ENV=production rollup -c",
