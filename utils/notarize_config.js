@@ -7,7 +7,16 @@ exports.default = async function notarizing(context) {
     return;
   }
 
-  console.log("darwin detected, beginning notarization...");
+  console.log("darwin detected");
+
+  // if action is being run for a pr check, skip
+  if (process.env.GITHUB_BASE_REF) {
+    console.log("it looks like we're in the midst of a pull request\n");
+    console.log("skipping notarization");
+    return;
+  }
+
+  console.log("beginning notarization...\n");
 
   const appName = context.packager.appInfo.productFilename;
 
@@ -20,7 +29,7 @@ exports.default = async function notarizing(context) {
       "one or more required environment variables couldn't be found, aborting..."
     );
   }
-  console.log("please stand by");
+  console.log("please stand by...");
   return await notarize({
     appBundleId: "rocks.theia.client",
     appPath: `${appOutDir}/${appName}.app`,
