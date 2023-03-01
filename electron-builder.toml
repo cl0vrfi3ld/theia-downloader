@@ -11,7 +11,7 @@ afterSign = "./utils/notarize_config.js"
 [publish]
 provider = "github"
 host = "github.com"
-releaseType = "prerelease"
+# releaseType = "prerelease"
 
 
 [mac]
