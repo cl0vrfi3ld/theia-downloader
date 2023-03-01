@@ -1,5 +1,5 @@
 /node_modules/
-src/renderer/public/build
+src/renderer/public/compiledjs
 
 .DS_Store
 

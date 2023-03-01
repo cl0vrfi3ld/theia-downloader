@@ -49,7 +49,7 @@ export default {
     sourcemap: true,
     format: "es",
     name: "app",
-    dir: "src/renderer/public/build",
+    dir: "src/renderer/public/compiledjs",
   },
   plugins: [
     // postcssrc(),
