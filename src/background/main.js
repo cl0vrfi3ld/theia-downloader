@@ -1,5 +1,7 @@
 const { app, session, BrowserWindow, ipcMain, dialog } = require("electron");
+const fs = require("fs");
 const path = require("path");
+const toml = require("@iarna/toml/parse-string");
 const nativeLog = require("electron-log");
 const { autoUpdater } = require("electron-updater");
 
@@ -32,14 +34,28 @@ nativeLog.catchErrors();
 console.log("starting the theia downloader");
 console.time("theia-startup");
 
+const parseAppConfig = () => {
+  const dataRaw = fs.readFileSync(path.join(__dirname, "../app.toml"), {
+    encoding: "utf-8",
+  });
+  // console.log(dataRaw);
+  const data = toml(dataRaw);
+  return data;
+};
+const appConfig = parseAppConfig();
+
+// console.log(appConfig);
+
 const createMainWindow = () => {
   // Create the browser window.
-  console.log(process.env.NODE_ENV);
+  // console.log(process.env.NODE_ENV);
+  mainWindowCfg = appConfig.ui.mainWindow;
+
   mainWindow = new BrowserWindow({
-    width: 720,
-    height: 600,
-    minWidth: 460,
-    minHeight: 600,
+    width: mainWindowCfg.width,
+    height: mainWindowCfg.height,
+    minWidth: mainWindowCfg.minWidth,
+    minHeight: mainWindowCfg.minHeight,
     titleBarStyle: "hidden",
     titleBarOverlay: process.platform === "win32" && {
       color: "#000",
@@ -66,13 +82,13 @@ const createMainWindow = () => {
 };
 
 const createUpdateWindow = (asDemo) => {
-  console.log(process.env.NODE_ENV, process.env.ROLLUP_WATCH);
+  updateWindowCfg = appConfig.ui.updateWindow;
   const updateWindow = new BrowserWindow({
-    width: 300,
-    height: 350,
-    frame: false,
-    resizable: false,
-    minimizable: false,
+    width: updateWindowCfg.width,
+    height: updateWindowCfg.height,
+    frame: updateWindowCfg.frame,
+    resizable: updateWindowCfg.resizable,
+    minimizable: updateWindowCfg.minimizable,
     closable: process.env.NODE_ENV == "development" ? true : false,
     webPreferences: {
       preload: path.join(__dirname, "updatePreload.cjs"),
@@ -92,10 +108,6 @@ const createUpdateWindow = (asDemo) => {
 const handleLaunch = async ({ updateWin, mainWin }) => {
   // check for updates
   const availUp = await autoUpdater.checkForUpdates();
-
-  /* console.log(availUp?.updateInfo);
-
-  console.log(availUp?.updateInfo.version.split("-")[0].replace(".", "")); */
 
   if (
     availUp?.updateInfo &&
@@ -175,6 +187,10 @@ ipcMain.handle("get_save_dir", async (eve, args) => {
   });
   console.log(selectedDir.filePaths[0]);
   return selectedDir.filePaths[0];
+});
+
+ipcMain.handle("get_quips", async (eve, res) => {
+  return appConfig.ui.quips;
 });
 
 ipcMain.handle("get_app_version", async (eve, args) => {
