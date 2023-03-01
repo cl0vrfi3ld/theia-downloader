@@ -8,6 +8,12 @@ generateUpdatesFilesForAllChannels = true
 
 afterSign = "./utils/notarize_config.js"
 
+[publish]
+provider = "github"
+host = "github.com"
+releaseType = "prerelease"
+
+
 [mac]
 category = "public.app-category.music"
 hardenedRuntime = true
