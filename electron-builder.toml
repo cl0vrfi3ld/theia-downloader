@@ -8,6 +8,30 @@ generateUpdatesFilesForAllChannels = true
 
 afterSign = "./utils/notarize_config.js"
 
+files = [
+    "**/src/app.toml",
+    "**/package.json",
+    "**/tsconfig.json",
+    "**/README.md",
+    "**/LICENSE.md",
+    "**/src/background/*",
+    "**/src/renderer/public/global.d.ts",
+    "**/src/renderer/public/**",
+    "!**/node_modules/*/{CHANGELOG.md,README.md,README,readme.md,readme}",
+    "!**/node_modules/*/{test,__tests__,tests,powered-test,example,examples}",
+    "!**/node_modules/*.d.ts",
+    "!**/node_modules/.bin",
+    "!**/asar-out-debug/*",
+    "!**/*.{iml,o,hprof,orig,pyc,pyo,rbc,swp,csproj,sln,xproj}",
+    "!.editorconfig",
+    "!.prettier*",
+    "!**/._*",
+    "!**/{.DS_Store,.git,.hg,.svn,CVS,RCS,SCCS,.gitignore,.gitattributes}",
+    "!**/{__pycache__,thumbs.db,.flowconfig,.idea,.vs,.nyc_output}",
+    "!**/{appveyor.yml,.travis.yml,circle.yml}",
+    "!**/{npm-debug.log,yarn.lock,.yarn-integrity,.yarn-metadata.json}",
+]
+
 # [publish]
 # provider = "github"
 # releaseType = "prerelease"
@@ -18,6 +42,7 @@ category = "public.app-category.music"
 hardenedRuntime = true
 entitlements = "./build/entitlements.mac.plist"
 entitlementsInherit = "./build/entitlements.mac.plist"
+# target = { target = "default", arch = ['x64', 'arm64'] } # uncomment this line to disable universal builds
 
 [dmg]
 title = "Install Theia"
