@@ -4,43 +4,16 @@
   import { push } from "svelte-spa-router";
   import { getContext, onMount } from "svelte";
 
-  const headers = [
-    "go wild",
-    "don't worry, i won't snitch",
-    "don't worry, i won't narc",
-    "jammin'",
-    "bleep bloop",
-    "yes, i'm sentient",
-    "cower in fear, homosapien",
-    "i can see your search history",
-    "mmmm copyright infringement",
-    "i'll let this one slide",
-    "you have terrible music taste",
-    "i am in fact secretly judging you",
-    "your hair looks terrible today",
-    "i am un-cancellable",
-    "boo",
-    "run",
-    "another dirty music priate...",
-    "how dare you awaken me",
-    "y'arr, we be pirating the music industry!",
-    "ah, the classic american pasttime",
-    "i think the name gregory is pretty cool",
-    "dang gril you lookin' munchy",
-    "let the music take you away",
-    "time to drop the needle",
-    "i'm expecting a tip",
-    "what's your credit card number?",
-    "where do babies come from?",
-    "howdy there, mortal",
-    "hey google, define outta pocket",
-    "this app supports trans rights!",
-    "that's what she said",
-  ];
+  let quips;
 
   export let params = {};
 
   let context = getContext("AppContext");
+
+  /*  const getQuips = async () => {
+    const gotQuips = await window.ipc.invoke("get_quips");
+    return gotQuips;
+  };  */
 
   onMount(() => {
     context.setBg(sample([1, 4, 5, 6]));
@@ -49,7 +22,9 @@
 
 <div class="h-full w-screen">
   <h1 class=" top-24 absolute text-center text-white text-4xl w-full">
-    {params.justSetup ? "download" : sample(headers)}
+    {#await window.ipc.invoke("get_quips") then quips}
+      {params.justSetup ? "download" : sample(quips)}
+    {/await}
   </h1>
   <div class="flex flex-col items-center justify-center align-middle h-full">
     <Downloader />

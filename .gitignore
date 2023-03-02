@@ -9,3 +9,4 @@ notarization-error.log
 *.env
 
 dist/
+asar-out-debug/

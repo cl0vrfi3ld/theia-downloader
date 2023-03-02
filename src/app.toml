@@ -1,1 +1,57 @@
-# .
+# this file contains various config values for the app so that they can all be edited in one place
+# various ui cfgs
+[ui]
+quips = [
+    "go wild",
+    "gay",
+    "don't worry, i won't snitch",
+    "don't worry, i won't narc",
+    "jammin'",
+    "bleep bloop",
+    "yes, i'm sentient",
+    "cower in fear, human",
+    "i saw your search history",
+    "mmmm copyright infringement",
+    "i'll let this one slide",
+    "you have terrible music taste",
+    "i am in fact secretly judging you",
+    "this is a zero tolerance chainsmokers zone",
+    "your hair looks terrible today",
+    "what if",
+    "i find floppy disks very attractive",
+    "i am un-cancellable",
+    "boo",
+    "run",
+    "hehe caffeine go brrrrr",
+    "another dirty music priate...",
+    "how dare you awaken me",
+    "i hope you stub your toe reeaally hard",
+    "guess who's hogging all of your ram >:)",
+    "i think the name gregory is pretty cool",
+    "dang girl you lookin' munchy",
+    "let the music take you away",
+    "time to drop the needle",
+    "i'm expecting a tip",
+    "what's your credit card number?",
+    "where do babies come from?",
+    "howdy there, mortal",
+    "that sounds like my mother in-law",
+    "hotrod was my nickname back in high school",
+    "this app supports trans rights!",
+    "that's what she said",
+]
+
+# config values for the main ui window
+[ui.mainWindow]
+width = 725
+height = 600
+minWidth = 460
+minHeight = 600
+
+# config values for the main ui window
+[ui.updateWindow]
+width = 300
+height = 350
+frame = false
+resizable = false
+minimizable = false
