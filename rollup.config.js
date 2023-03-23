@@ -10,6 +10,7 @@ import css from "rollup-plugin-css-only";
 import sass from "rollup-plugin-sass";
 import json from "@rollup/plugin-json";
 // import postcss from "rollup-plugin-postcss";
+import del from "rollup-plugin-delete";
 import tailwind from "tailwindcss";
 import autoprefixer from "autoprefixer";
 import dotenv from "dotenv";
@@ -117,6 +118,9 @@ export default {
     // Watch the `public` directory and refresh the
     // browser on changes when not in production
     !production && livereload("src/renderer/public"),
+
+    // clear dist cache before building
+    production && del({ targets: "src/renderer/public/compiledjs/*" }),
 
     // If we're building for production (npm run build
     // instead of npm run dev), minify

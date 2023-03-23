@@ -4,16 +4,9 @@
   import { push } from "svelte-spa-router";
   import { getContext, onMount } from "svelte";
 
-  let quips;
-
   export let params = {};
 
   let context = getContext("AppContext");
-
-  /*  const getQuips = async () => {
-    const gotQuips = await window.ipc.invoke("get_quips");
-    return gotQuips;
-  };  */
 
   onMount(() => {
     context.setBg(sample([1, 4, 5, 6]));
@@ -21,7 +14,7 @@
 </script>
 
 <div class="h-full w-screen">
-  <h1 class=" top-24 absolute text-center text-white text-4xl w-full">
+  <h1 class=" top-24 absolute text-center text-white text-4xl w-full mr-2">
     {#await window.ipc.invoke("get_quips") then quips}
       {params.justSetup ? "download" : sample(quips)}
     {/await}

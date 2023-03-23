@@ -7,7 +7,7 @@
     "url": "https://cl0vr.co/",
     "email": "47996003+cl0vrfi3ld@users.noreply.github.com"
   },
-  "version": "0.2.2",
+  "version": "0.2.3",
   "private": true,
   "main": "src/background/main.js",
   "homepage": "https://theia.cl0vr.co",
@@ -54,6 +54,7 @@
     "prettier-plugin-svelte": "^2.5.1",
     "rollup": "^2.3.4",
     "rollup-plugin-css-only": "^3.1.0",
+    "rollup-plugin-delete": "^2.0.0",
     "rollup-plugin-livereload": "^2.0.0",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-sass": "^1.2.10",
