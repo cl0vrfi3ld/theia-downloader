@@ -3,7 +3,7 @@ name: Build/release
 on:
   push:
     branches:
-      - "main"
+      # - "main"
       - "prerelease"
   pull_request:
     branches:
