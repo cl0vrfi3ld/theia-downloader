@@ -11,8 +11,7 @@ const validChannels = [
   "alert",
   "progress_update",
   "show_update_window",
-  "update_available",
-  "upgrade",
+  "get_quips",
 ];
 
 contextBridge.exposeInMainWorld("ipc", {
