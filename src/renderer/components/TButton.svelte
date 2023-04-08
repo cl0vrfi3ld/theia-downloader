@@ -4,7 +4,7 @@
   const dispatch = createEventDispatcher();
 
   export let isActive: boolean = false;
-  export let type: string = "button";
+  export let type: "button" | "submit" | "reset" = "button";
   export let wide: boolean = false;
   export let tooltip: string = "";
   export let disabled: boolean = false;

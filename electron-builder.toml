@@ -1,6 +1,6 @@
 # configuration file for `electron-builder` options
 # i wanted these in a separate file for readability/simplicity, which is also why i went with toml
-productName = "Theia"
+productName = "Theia Downloader"
 appId = "co.cl0vr.theia.dl"
 copyright = "Copyright © 2023 cl0vr"
 
@@ -45,7 +45,7 @@ entitlementsInherit = "./build/entitlements.mac.plist"
 # target = { target = "default", arch = ['x64', 'arm64'] } # uncomment this line to disable universal builds
 
 [dmg]
-title = "Install Theia"
+title = "Install ${productName} v${version}"
 
 [dmg.window]
 width = 540
