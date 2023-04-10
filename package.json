@@ -7,7 +7,7 @@
     "url": "https://cl0vr.co/",
     "email": "47996003+cl0vrfi3ld@users.noreply.github.com"
   },
-  "version": "0.2.4",
+  "version": "0.3.0",
   "private": true,
   "main": "src/background/main.js",
   "homepage": "https://theia.cl0vr.co",
@@ -40,7 +40,7 @@
     "autoprefixer": "^10.4.0",
     "cross-env": "^7.0.3",
     "dotenv": "^16.0.3",
-    "electron": "^23.1.1",
+    "electron": "^24.0.0",
     "electron-builder": "^23.6.0",
     "electron-builder-notarize": "^1.5.1",
     "inquirer": "^8.2.0",
@@ -72,7 +72,7 @@
   },
   "dependencies": {
     "@iarna/toml": "^2.2.5",
-    "electron-log": "4",
+    "electron-log": "^4.4.8",
     "electron-updater": "^5.3.0",
     "gun": "^0.2020.1235",
     "lodash": "^4.17.21",
