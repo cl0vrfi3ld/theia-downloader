@@ -1,6 +1,10 @@
 # Ignore artifacts:
 build
+utils/local-s3.docker-compose.yml
+.yarn
+compiledjs
 dist
 node_modules
 public
 README.md
+LICENSE.md
