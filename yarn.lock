@@ -521,10 +521,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^16.11.26":
-  version: 16.18.18
-  resolution: "@types/node@npm:16.18.18"
-  checksum: 021936e4fcd5cb038cd5d2d26328c7c0bf501d15793e48a12501129cf8770cbbe9a6936fcb64eeb10a102ff273c2606b75c1635a5834abd786014c98c112aaee
+"@types/node@npm:^18.11.18":
+  version: 18.15.11
+  resolution: "@types/node@npm:18.15.11"
+  checksum: 977b4ad04708897ff0eb049ecf82246d210939c82461922d20f7d2dcfd81bbc661582ba3af28869210f7e8b1934529dcd46bff7d448551400f9d48b9d3bddec3
   languageName: node
   linkType: hard
 
@@ -2039,7 +2039,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"electron-log@npm:^4":
+"electron-log@npm:^4.4.8":
   version: 4.4.8
   resolution: "electron-log@npm:4.4.8"
   checksum: 5a7958f8fd9a5c95987e885ffe1c5b88be15bb41d348b65c92e2d8664519faddf17ce0208cd4e7027b0908f92fecedfbef246a45061f53e4a53b5d2201aafbd9
@@ -2112,16 +2112,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"electron@npm:^23.1.1":
-  version: 23.2.0
-  resolution: "electron@npm:23.2.0"
+"electron@npm:^24.0.0":
+  version: 24.0.0
+  resolution: "electron@npm:24.0.0"
   dependencies:
     "@electron/get": ^2.0.0
-    "@types/node": ^16.11.26
+    "@types/node": ^18.11.18
     extract-zip: ^2.0.1
   bin:
     electron: cli.js
-  checksum: 175326a42946dd5fa55d4a4e550328109abcf868bda6d34e9f49caaa4a672ddf65624e76260cf767ba37e0278f96cf1b21b7204c8528476f3f516fcc4b4e097f
+  checksum: 6b2fe2f25e996eed5aefaac481d9d1666e0d4666843887e9029a044640a7559933c1ae9d67215af88a018c2052821201ea23475396c7ead6a7ba6716b0913fdb
   languageName: node
   linkType: hard
 
@@ -5942,10 +5942,10 @@ __metadata:
     autoprefixer: ^10.4.0
     cross-env: ^7.0.3
     dotenv: ^16.0.3
-    electron: ^23.1.1
+    electron: ^24.0.0
     electron-builder: ^23.6.0
     electron-builder-notarize: ^1.5.1
-    electron-log: ^4
+    electron-log: ^4.4.8
     electron-updater: ^5.3.0
     gun: ^0.2020.1235
     inquirer: ^8.2.0
