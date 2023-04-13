@@ -6,47 +6,59 @@ updates:
   # daily "express" updates
   - package-ecosystem: "npm" # See documentation for possible values
     directory: "/" # Location of package manifests
+    target-branch: "dev"
     commit-message:
       prefix: "express deps"
       prefix-development: "express dev deps"
       include: "scope"
     schedule:
       interval: "daily"
-    allow:      
+    allow:
       - dependency-name: "yt*"
-      
+
       - dependency-name: "electron-*"
-      
+
       - dependency-name: "lodash"
-    
+
       - dependency-name: "svelte-spa-router"
         dependency-type: "production"
-      
-      # dev dependencies      
+
+      # dev dependencies
       - dependency-name: "@electron/notarize"
         dependency-type: "development"
-      
+
       - dependency-name: "electron"
         dependency-type: "development"
-        
+
       - dependency-name: "electron-builder*"
         dependency-type: "development"
 
       - dependency-name: "svelte*"
         dependency-type: "development"
-        
+
       - dependency-name: "@tsconfig*"
         dependency-type: "development"
-        
+
       - dependency-name: "@rollup*"
         dependency-type: "development"
-        
+
       - dependency-name: "rollup*"
         dependency-type: "development"
-      
+
   # ensure ci actions are fully up-to-date
   - package-ecosystem: "github-actions"
     directory: "/"
+    target-branch: "prerelease"
+    commit-message:
+      prefix: "ci"
+      include: "scope"
+    schedule:
+      interval: "weekly"
+
+  # ensure ci actions are fully up-to-date
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    target-branch: "main"
     commit-message:
       prefix: "ci"
       include: "scope"
