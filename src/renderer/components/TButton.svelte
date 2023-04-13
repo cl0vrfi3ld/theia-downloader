@@ -38,14 +38,16 @@
 </button>
 
 <style lang="sass">
-    .t_btn
+.bg-action
+    background: rgba(196, 196, 196, 0.4)
+.t_btn
       color: #ffffff
       min-width: 4.6em
       min-height: 2.7em
       position: relative
       overflow: hidden
 
-    .t_btn:before 
+.t_btn:before 
       content: "\A"
       position: absolute
       background: white
@@ -54,9 +56,9 @@
       left: 0
       width: var(--theme-fill)
 
-    .white-override
+.white-override
       color: white !important
 
-    .wide
+.wide
       min-width: 7.6em !important
 </style>

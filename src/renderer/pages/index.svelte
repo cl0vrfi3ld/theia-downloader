@@ -1,37 +1,40 @@
 <script lang="ts">
-  // this component is basically gonna be our "catchall" page on startup
-  import type { IpcRenderer } from "electron";
-  import { getContext, onMount } from "svelte";
-  import Router, { push } from "svelte-spa-router";
-  import { auth, user } from "../util/svelte-gun";
+	// this component is basically gonna be our "catchall" page on startup
 
-  const pageEnv = DEV_PAGE;
+	import { getContext, onMount } from 'svelte';
+	import Router, { push } from 'svelte-spa-router';
 
-  onMount(async () => {
-    await auth();
+	import type { IpcRenderer } from 'electron';
 
-    user
-      .get("preferences")
-      .get("save_dir")
-      .once((i) => {
-        console.log(i, pageEnv);
+	import { auth, user } from '../util/svelte-gun';
 
-        if (pageEnv) {
-          // console.log("pushing to DEV_PAGE");
-          return;
-        }
+	const pageEnv = DEV_PAGE;
 
-        // if (!pageEnv) console.log("no DEV_PAGE");
+	onMount(async () => {
+		await auth();
 
-        if (i) {
-          // console.log("pushing to download");
-          push("/download");
-          return;
-        } else {
-          // console.log("pushing to setup");
-          push("/setup");
-          return;
-        }
-      });
-  });
+		user
+			.get('preferences')
+			.get('save_dir')
+			.once((i) => {
+				console.log(i, pageEnv);
+
+				if (pageEnv) {
+					// console.log("pushing to DEV_PAGE");
+					return;
+				}
+
+				// if (!pageEnv) console.log("no DEV_PAGE");
+
+				if (i) {
+					// console.log("pushing to download");
+					push('/download');
+					return;
+				} else {
+					// console.log("pushing to setup");
+					push('/setup');
+					return;
+				}
+			});
+	});
 </script>

@@ -21,12 +21,15 @@ jobs:
 
     steps:
       - name: Check out Git repository
-        uses: actions/checkout@v1
+        uses: actions/checkout@v3
 
       - name: Install Node.js, NPM and Yarn
         uses: actions/setup-node@v3
         with:
           node-version-file: ".nvmrc"
+
+      - name: Install Dependencies
+        run: "yarn install --immutable --immutable-cache --check-cache"
 
       - name: Prepare for app notarization
         if: startsWith(matrix.os, 'macos')
@@ -35,8 +38,9 @@ jobs:
           echo "APPLE_ID=${{ secrets.not_apple_id }}" >> $GITHUB_ENV
           echo "APPLE_ID_PASSWORD=${{ secrets.not_apple_id_password }}" >> $GITHUB_ENV
           echo "APPLE_TEAM_ID=${{ secrets.not_apple_team_id }}" >> $GITHUB_ENV
+
       - name: Build/release Electron app
-        uses: samuelmeuli/action-electron-builder@v1
+        uses: paneron/action-electron-builder@v1.8.1
         with:
           # GitHub token, automatically provided to the action
           # (No need to define this secret in the repo settings)
