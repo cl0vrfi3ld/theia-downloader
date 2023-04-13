@@ -6326,6 +6326,7 @@ __metadata:
     toml: ^3.0.0
     tslib: ^2.0.0
     typescript: ^4.0.0
+    vm2: ^3.9.16
     ytcog: ^2.4.3
   languageName: unknown
   linkType: soft
@@ -6594,6 +6595,18 @@ __metadata:
     core-util-is: 1.0.2
     extsprintf: ^1.2.0
   checksum: 690a8d6ad5a4001672290e9719e3107c86269bc45fe19f844758eecf502e59f8aa9631b19b839f6d3dea562334884d22d1eb95ae7c863032075a9212c889e116
+  languageName: node
+  linkType: hard
+
+"vm2@npm:^3.9.16":
+  version: 3.9.16
+  resolution: "vm2@npm:3.9.16"
+  dependencies:
+    acorn: ^8.7.0
+    acorn-walk: ^8.2.0
+  bin:
+    vm2: bin/vm2
+  checksum: 646b45dca721acb3c8e4ae0742129f13612972387911c2475f3c06ac2b4232000cab0bdaaa65d97d6ea8dc70880e039542618b1b3d04adea79cd94803cbc4ab3
   languageName: node
   linkType: hard
 

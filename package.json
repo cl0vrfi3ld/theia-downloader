@@ -79,6 +79,7 @@
     "gun": "^0.2020.1235",
     "lodash": "^4.17.21",
     "svelte-spa-router": "^3.2.0",
+    "vm2": "^3.9.16",
     "ytcog": "^2.4.3"
   },
   "packageManager": "yarn@3.5.0"
