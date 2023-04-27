@@ -3048,16 +3048,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gun@npm:^0.2020.1235":
+"gun@git+ssh://git@github.com/amark/gun.git":
   version: 0.2020.1239
-  resolution: "gun@npm:0.2020.1239"
+  resolution: "gun@git+ssh://git@github.com/amark/gun.git#commit=b14d5da5584fd26a86cc22d9ac8172cb107d339e"
   dependencies:
     "@peculiar/webcrypto": ^1.1.1
     ws: ^7.2.1
   dependenciesMeta:
     "@peculiar/webcrypto":
       optional: true
-  checksum: c9ef881a725dd90e9bc51eecde8be3a32cd331a88576dc92434394c192cf324f97568ac06fea61d92539d3e6ae2d7c0fb6e666a309012b14c170e592d4a58616
+  checksum: 1757e79d39901c0aec0967f3686381b57b93bae9cb2a3029781a7ef797357087ac5bc722168074abe53a1bc512a82e72bded762b26e365556ebf7931a673cd41
   languageName: node
   linkType: hard
 
@@ -6297,7 +6297,7 @@ __metadata:
     electron-builder-notarize: ^1.5.1
     electron-log: ^4.4.8
     electron-updater: ^5.3.0
-    gun: ^0.2020.1235
+    gun: "git+ssh://git@github.com/amark/gun.git"
     inquirer: ^8.2.0
     lodash: ^4.17.21
     node-fetch: ^3.1.0
