@@ -39,6 +39,9 @@ updates:
       - dependency-name: "@tsconfig*"
         dependency-type: "development"
 
+      - dependency-name: "typescript"
+        dependency-type: "development"
+
       - dependency-name: "@rollup*"
         dependency-type: "development"
 
