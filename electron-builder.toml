@@ -6,7 +6,7 @@ copyright = "Copyright © 2023 cl0vr"
 
 generateUpdatesFilesForAllChannels = true
 
-afterSign = "./utils/notarize_config.js"
+afterSign = "./utils/notarize_config.cjs"
 
 files = [
     "**/src/app.toml",
