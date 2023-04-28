@@ -7,7 +7,7 @@
 		"url": "https://cl0vr.co/",
 		"email": "47996003+cl0vrfi3ld@users.noreply.github.com"
 	},
-	"version": "0.3.1",
+	"version": "0.3.2",
 	"type": "module",
 	"private": true,
 	"main": "src/background/main.cjs",
