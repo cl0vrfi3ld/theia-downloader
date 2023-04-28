@@ -8,8 +8,9 @@
 		"email": "47996003+cl0vrfi3ld@users.noreply.github.com"
 	},
 	"version": "0.3.1",
+	"type": "module",
 	"private": true,
-	"main": "src/background/main.js",
+	"main": "src/background/main.cjs",
 	"homepage": "https://theia.cl0vr.co",
 	"license": "MIT",
 	"scripts": {
@@ -55,7 +56,7 @@
 		"prettier": "^2.5.1",
 		"prettier-plugin-svelte": "^2.5.1",
 		"prettier-plugin-tailwindcss": "^0.2.7",
-		"rollup": "^2.3.4",
+		"rollup": "^3.21.0",
 		"rollup-plugin-css-only": "^4.3.0",
 		"rollup-plugin-delete": "^2.0.0",
 		"rollup-plugin-livereload": "^2.0.0",
