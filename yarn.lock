@@ -6327,7 +6327,7 @@ __metadata:
     tslib: ^2.0.0
     typescript: ^5.0.4
     vm2: ^3.9.17
-    ytcog: ^2.4.3
+    ytcog: ^2.5.0
   languageName: unknown
   linkType: soft
 
@@ -6792,15 +6792,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ytcog@npm:^2.4.3":
-  version: 2.4.3
-  resolution: "ytcog@npm:2.4.3"
+"ytcog@npm:^2.5.0":
+  version: 2.5.0
+  resolution: "ytcog@npm:2.5.0"
   dependencies:
     ffmpeg-static: ^4.2.7
     miniget: ^4.2.0
     proxy-agent: ^5.0.0
     sanitize-filename: ^1.6.3
     vm2: ^3.9.5
-  checksum: c3ab0cb05d3d72e52bf23e9f02a03585ed2659062266f96c9cb9f4d26f5e90b5d3e34f130d7a152a2b388568f5c06e95f4e54d89bfb55d0d041717f1d350bf7f
+  checksum: e07ff2d523f24bf01be9eec5b9d17ddf4a8a0fd76cce706da1b3d511172d91188853f7d5642c6f8cb654b54f50c09c5ec73d1ff7ab36bbbb83982df76c88e5ca
   languageName: node
   linkType: hard
