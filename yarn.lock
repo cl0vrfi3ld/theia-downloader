@@ -616,17 +616,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/pluginutils@npm:4, @rollup/pluginutils@npm:^4.1.0":
-  version: 4.2.1
-  resolution: "@rollup/pluginutils@npm:4.2.1"
-  dependencies:
-    estree-walker: ^2.0.1
-    picomatch: ^2.2.2
-  checksum: 6bc41f22b1a0f1efec3043899e4d3b6b1497b3dea4d94292d8f83b4cf07a1073ecbaedd562a22d11913ff7659f459677b01b09e9598a98936e746780ecc93a12
-  languageName: node
-  linkType: hard
-
-"@rollup/pluginutils@npm:^3 || ^4 || ^5, @rollup/pluginutils@npm:^5.0.1":
+"@rollup/pluginutils@npm:5, @rollup/pluginutils@npm:^3 || ^4 || ^5, @rollup/pluginutils@npm:^5.0.1":
   version: 5.0.2
   resolution: "@rollup/pluginutils@npm:5.0.2"
   dependencies:
@@ -652,6 +642,16 @@ __metadata:
   peerDependencies:
     rollup: ^1.20.0||^2.0.0
   checksum: 8be16e27863c219edbb25a4e6ec2fe0e1e451d9e917b6a43cf2ae5bc025a6b8faaa40f82a6e53b66d0de37b58ff472c6c3d57a83037ae635041f8df959d6d9aa
+  languageName: node
+  linkType: hard
+
+"@rollup/pluginutils@npm:^4.1.0":
+  version: 4.2.1
+  resolution: "@rollup/pluginutils@npm:4.2.1"
+  dependencies:
+    estree-walker: ^2.0.1
+    picomatch: ^2.2.2
+  checksum: 6bc41f22b1a0f1efec3043899e4d3b6b1497b3dea4d94292d8f83b4cf07a1073ecbaedd562a22d11913ff7659f459677b01b09e9598a98936e746780ecc93a12
   languageName: node
   linkType: hard
 
@@ -5473,14 +5473,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup-plugin-css-only@npm:^3.1.0":
-  version: 3.1.0
-  resolution: "rollup-plugin-css-only@npm:3.1.0"
+"rollup-plugin-css-only@npm:^4.3.0":
+  version: 4.3.0
+  resolution: "rollup-plugin-css-only@npm:4.3.0"
   dependencies:
-    "@rollup/pluginutils": 4
+    "@rollup/pluginutils": 5
   peerDependencies:
-    rollup: 1 || 2
-  checksum: ea64ccb19f91ccefd6bcf5975d84c9da776028146ab1d485586c8bf67a0ba294ca8105b287cd9d3589ac427db7b1b3a4e83f6f01026369776dba2298df59b292
+    rollup: <4
+  checksum: c56228cf9108e4df3bef6babbc5d18c285d7b3ad1e2b461362c0f6d6e73c1291cd2bea4c8ed9d3e157a577429e40726099b911e90d918e35df1c67c385a56fa0
   languageName: node
   linkType: hard
 
@@ -6312,7 +6312,7 @@ __metadata:
     prettier-plugin-svelte: ^2.5.1
     prettier-plugin-tailwindcss: ^0.2.7
     rollup: ^2.3.4
-    rollup-plugin-css-only: ^3.1.0
+    rollup-plugin-css-only: ^4.3.0
     rollup-plugin-delete: ^2.0.0
     rollup-plugin-livereload: ^2.0.0
     rollup-plugin-postcss: ^4.0.2
