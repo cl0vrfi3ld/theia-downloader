@@ -8,8 +8,9 @@
 		"email": "47996003+cl0vrfi3ld@users.noreply.github.com"
 	},
 	"version": "0.3.1",
+	"type": "module",
 	"private": true,
-	"main": "src/background/main.js",
+	"main": "src/background/main.cjs",
 	"homepage": "https://theia.cl0vr.co",
 	"license": "MIT",
 	"scripts": {
