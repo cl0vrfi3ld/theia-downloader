@@ -80,7 +80,7 @@
 		"lodash": "^4.17.21",
 		"svelte-spa-router": "^3.2.0",
 		"vm2": "^3.9.17",
-		"ytcog": "^2.4.3"
+		"ytcog": "^2.5.0"
 	},
 	"packageManager": "yarn@3.5.0"
 }
