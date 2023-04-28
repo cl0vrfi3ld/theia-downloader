@@ -29,7 +29,7 @@ jobs:
           node-version-file: ".nvmrc"
 
       - name: Install Dependencies
-        run: "yarn install --immutable --immutable-cache --check-cache"
+        run: "yarn install --immutable"
 
       - name: Prepare for app notarization
         if: startsWith(matrix.os, 'macos')
