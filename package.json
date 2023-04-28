@@ -36,6 +36,7 @@
 		"@rollup/plugin-commonjs": "18",
 		"@rollup/plugin-json": "^4.1.0",
 		"@rollup/plugin-node-resolve": "13.0.6",
+		"@rollup/plugin-terser": "^0.4.1",
 		"@rollup/plugin-typescript": "^8.0.0",
 		"@tsconfig/svelte": "^4.0.1",
 		"autoprefixer": "^10.4.0",
@@ -73,13 +74,12 @@
 	},
 	"dependencies": {
 		"@iarna/toml": "^2.2.5",
-		"@rollup/plugin-terser": "^0.4.1",
 		"electron-log": "^4.4.8",
 		"electron-updater": "^5.3.0",
-		"gun": "git+ssh://git@github.com/amark/gun.git",
+		"gun": "git+ssh://git@github.com:amark/gun.git",
 		"lodash": "^4.17.21",
 		"svelte-spa-router": "^3.2.0",
-		"vm2": "^3.9.16",
+		"vm2": "^3.9.17",
 		"ytcog": "^2.4.3"
 	},
 	"packageManager": "yarn@3.5.0"

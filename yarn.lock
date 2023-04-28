@@ -3048,9 +3048,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gun@git+ssh://git@github.com/amark/gun.git":
+"gun@git+ssh://git@github.com:amark/gun.git":
   version: 0.2020.1239
-  resolution: "gun@git+ssh://git@github.com/amark/gun.git#commit=b14d5da5584fd26a86cc22d9ac8172cb107d339e"
+  resolution: "gun@git+ssh://git@github.com:amark/gun.git#commit=b14d5da5584fd26a86cc22d9ac8172cb107d339e"
   dependencies:
     "@peculiar/webcrypto": ^1.1.1
     ws: ^7.2.1
@@ -6297,7 +6297,7 @@ __metadata:
     electron-builder-notarize: ^1.5.1
     electron-log: ^4.4.8
     electron-updater: ^5.3.0
-    gun: "git+ssh://git@github.com/amark/gun.git"
+    gun: "git+ssh://git@github.com:amark/gun.git"
     inquirer: ^8.2.0
     lodash: ^4.17.21
     node-fetch: ^3.1.0
@@ -6326,7 +6326,7 @@ __metadata:
     toml: ^3.0.0
     tslib: ^2.0.0
     typescript: ^5.0.4
-    vm2: ^3.9.16
+    vm2: ^3.9.17
     ytcog: ^2.4.3
   languageName: unknown
   linkType: soft
@@ -6598,15 +6598,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vm2@npm:^3.9.16":
-  version: 3.9.16
-  resolution: "vm2@npm:3.9.16"
+"vm2@npm:^3.9.17":
+  version: 3.9.17
+  resolution: "vm2@npm:3.9.17"
   dependencies:
     acorn: ^8.7.0
     acorn-walk: ^8.2.0
   bin:
     vm2: bin/vm2
-  checksum: 646b45dca721acb3c8e4ae0742129f13612972387911c2475f3c06ac2b4232000cab0bdaaa65d97d6ea8dc70880e039542618b1b3d04adea79cd94803cbc4ab3
+  checksum: 9a03740a40ab2be5e3348a95fb31512da1a3c85318febb07e5299fa103ff05bcd7b6f458211fa38a1281dc27beccd04ff90355fc1d34fe2ee6ca10d0bb8c6f35
   languageName: node
   linkType: hard
 
