@@ -5562,9 +5562,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:^3.21.0":
-  version: 3.21.0
-  resolution: "rollup@npm:3.21.0"
+"rollup@npm:^3.21.3":
+  version: 3.21.3
+  resolution: "rollup@npm:3.21.3"
   dependencies:
     fsevents: ~2.3.2
   dependenciesMeta:
@@ -5572,7 +5572,7 @@ __metadata:
       optional: true
   bin:
     rollup: dist/bin/rollup
-  checksum: f3294d712147c0975c59ff81b3010dc08d07743cdad72fbe12879044b3e467139b3c2aeec85768656c4f7ec6a7b3d19354a78fc2050044bf8e90a499e145e31e
+  checksum: 430c0c66f1480586ccea77b190524efb6a3af3da5308c7bc77eca3160c3f387c9a56ebb3eef5bfb24f683764bdfdd3dafdea175d215e4b875bbde752619bec12
   languageName: node
   linkType: hard
 
@@ -6308,7 +6308,7 @@ __metadata:
     prettier: ^2.5.1
     prettier-plugin-svelte: ^2.5.1
     prettier-plugin-tailwindcss: ^0.2.7
-    rollup: ^3.21.0
+    rollup: ^3.21.3
     rollup-plugin-css-only: ^4.3.0
     rollup-plugin-delete: ^2.0.0
     rollup-plugin-livereload: ^2.0.0
