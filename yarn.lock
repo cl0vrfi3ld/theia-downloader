@@ -6102,9 +6102,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svelte-check@npm:^3.2.0":
-  version: 3.2.0
-  resolution: "svelte-check@npm:3.2.0"
+"svelte-check@npm:^3.3.1":
+  version: 3.3.1
+  resolution: "svelte-check@npm:3.3.1"
   dependencies:
     "@jridgewell/trace-mapping": ^0.3.17
     chokidar: ^3.4.1
@@ -6118,7 +6118,7 @@ __metadata:
     svelte: ^3.55.0
   bin:
     svelte-check: bin/svelte-check
-  checksum: aee12828fb47e13b1aacd9f7069adc3f154087b5597ea8f4957b0288c87925a8b9542493e261b6bfba780a3e9962256a93ba3302d72a064735260e2371c7030d
+  checksum: e79fdbac6f0f72a21c2d8c77b5229158a8993464bd600586207c9287bccf6a9091d1ff323cab03eeb467bb4d15cca90390342158f6add341f055e99077a7c301
   languageName: node
   linkType: hard
 
@@ -6318,7 +6318,7 @@ __metadata:
     sass: ^1.45.0
     sirv-cli: ^1.0.0
     svelte: ^3.58.0
-    svelte-check: ^3.2.0
+    svelte-check: ^3.3.1
     svelte-preprocess: ^5.0.1
     svelte-spa-router: ^3.2.0
     tailwindcss: ^3.0.1
