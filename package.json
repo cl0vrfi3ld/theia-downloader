@@ -79,7 +79,7 @@
 		"gun": "git+ssh://git@github.com:amark/gun.git",
 		"lodash": "^4.17.21",
 		"svelte-spa-router": "^3.2.0",
-		"vm2": "^3.9.17",
+		"vm2": "^3.9.18",
 		"ytcog": "^2.4.3"
 	},
 	"packageManager": "yarn@3.5.0"
