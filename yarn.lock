@@ -537,9 +537,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/plugin-commonjs@npm:24":
-  version: 24.1.0
-  resolution: "@rollup/plugin-commonjs@npm:24.1.0"
+"@rollup/plugin-commonjs@npm:25":
+  version: 25.0.0
+  resolution: "@rollup/plugin-commonjs@npm:25.0.0"
   dependencies:
     "@rollup/pluginutils": ^5.0.1
     commondir: ^1.0.1
@@ -552,7 +552,7 @@ __metadata:
   peerDependenciesMeta:
     rollup:
       optional: true
-  checksum: 42faafc9bc8e04d75c86bb50d693ebb9c5eee19bf9ab3c09780b872547d12ff5ea85cfec7da75f5176d0aa4b5233101f667f44b85b331450a7bb14c95180852e
+  checksum: f014f98f161ba4573e5101cf262c152bdcd8cfebf9cf4872f8bb657d20e20d8e2dc51af5339fe10772d19007e63044bd79881af0db4fe9babe9e96d0c0eeb328
   languageName: node
   linkType: hard
 
@@ -586,6 +586,21 @@ __metadata:
     rollup:
       optional: true
   checksum: 328eafee06ff967a36441b55e77fbd0d4f599d256e5d1977800ee71915846c46bc1b6185df35c7b512ad2b4023b05b65a332be77b8b00b9d8a20f87d056b8166
+  languageName: node
+  linkType: hard
+
+"@rollup/plugin-swc@npm:^0.1.0":
+  version: 0.1.0
+  resolution: "@rollup/plugin-swc@npm:0.1.0"
+  dependencies:
+    smob: ^0.0.6
+  peerDependencies:
+    "@swc/core": ^1.x
+    rollup: ^3.x
+  peerDependenciesMeta:
+    rollup:
+      optional: true
+  checksum: 4f0ef6b56d33093e41131fdfbcf9c9c2a52ce71c7f139bf44f9b63df2f6bdc94ab6b5c3c4322aaafe10ce746e37ea66172abdf872528055711198e6161a512fa
   languageName: node
   linkType: hard
 
@@ -665,6 +680,120 @@ __metadata:
   version: 4.6.0
   resolution: "@sindresorhus/is@npm:4.6.0"
   checksum: 83839f13da2c29d55c97abc3bc2c55b250d33a0447554997a85c539e058e57b8da092da396e252b11ec24a0279a0bed1f537fa26302209327060643e327f81d2
+  languageName: node
+  linkType: hard
+
+"@swc/core-darwin-arm64@npm:1.3.58":
+  version: 1.3.58
+  resolution: "@swc/core-darwin-arm64@npm:1.3.58"
+  conditions: os=darwin & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@swc/core-darwin-x64@npm:1.3.58":
+  version: 1.3.58
+  resolution: "@swc/core-darwin-x64@npm:1.3.58"
+  conditions: os=darwin & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@swc/core-linux-arm-gnueabihf@npm:1.3.58":
+  version: 1.3.58
+  resolution: "@swc/core-linux-arm-gnueabihf@npm:1.3.58"
+  conditions: os=linux & cpu=arm
+  languageName: node
+  linkType: hard
+
+"@swc/core-linux-arm64-gnu@npm:1.3.58":
+  version: 1.3.58
+  resolution: "@swc/core-linux-arm64-gnu@npm:1.3.58"
+  conditions: os=linux & cpu=arm64 & libc=glibc
+  languageName: node
+  linkType: hard
+
+"@swc/core-linux-arm64-musl@npm:1.3.58":
+  version: 1.3.58
+  resolution: "@swc/core-linux-arm64-musl@npm:1.3.58"
+  conditions: os=linux & cpu=arm64 & libc=musl
+  languageName: node
+  linkType: hard
+
+"@swc/core-linux-x64-gnu@npm:1.3.58":
+  version: 1.3.58
+  resolution: "@swc/core-linux-x64-gnu@npm:1.3.58"
+  conditions: os=linux & cpu=x64 & libc=glibc
+  languageName: node
+  linkType: hard
+
+"@swc/core-linux-x64-musl@npm:1.3.58":
+  version: 1.3.58
+  resolution: "@swc/core-linux-x64-musl@npm:1.3.58"
+  conditions: os=linux & cpu=x64 & libc=musl
+  languageName: node
+  linkType: hard
+
+"@swc/core-win32-arm64-msvc@npm:1.3.58":
+  version: 1.3.58
+  resolution: "@swc/core-win32-arm64-msvc@npm:1.3.58"
+  conditions: os=win32 & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@swc/core-win32-ia32-msvc@npm:1.3.58":
+  version: 1.3.58
+  resolution: "@swc/core-win32-ia32-msvc@npm:1.3.58"
+  conditions: os=win32 & cpu=ia32
+  languageName: node
+  linkType: hard
+
+"@swc/core-win32-x64-msvc@npm:1.3.58":
+  version: 1.3.58
+  resolution: "@swc/core-win32-x64-msvc@npm:1.3.58"
+  conditions: os=win32 & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@swc/core@npm:^1.3.58":
+  version: 1.3.58
+  resolution: "@swc/core@npm:1.3.58"
+  dependencies:
+    "@swc/core-darwin-arm64": 1.3.58
+    "@swc/core-darwin-x64": 1.3.58
+    "@swc/core-linux-arm-gnueabihf": 1.3.58
+    "@swc/core-linux-arm64-gnu": 1.3.58
+    "@swc/core-linux-arm64-musl": 1.3.58
+    "@swc/core-linux-x64-gnu": 1.3.58
+    "@swc/core-linux-x64-musl": 1.3.58
+    "@swc/core-win32-arm64-msvc": 1.3.58
+    "@swc/core-win32-ia32-msvc": 1.3.58
+    "@swc/core-win32-x64-msvc": 1.3.58
+  peerDependencies:
+    "@swc/helpers": ^0.5.0
+  dependenciesMeta:
+    "@swc/core-darwin-arm64":
+      optional: true
+    "@swc/core-darwin-x64":
+      optional: true
+    "@swc/core-linux-arm-gnueabihf":
+      optional: true
+    "@swc/core-linux-arm64-gnu":
+      optional: true
+    "@swc/core-linux-arm64-musl":
+      optional: true
+    "@swc/core-linux-x64-gnu":
+      optional: true
+    "@swc/core-linux-x64-musl":
+      optional: true
+    "@swc/core-win32-arm64-msvc":
+      optional: true
+    "@swc/core-win32-ia32-msvc":
+      optional: true
+    "@swc/core-win32-x64-msvc":
+      optional: true
+  peerDependenciesMeta:
+    "@swc/helpers":
+      optional: true
+  checksum: 34e5a1046aab51e55b35b966e54de8f1bcdef2535c297d76a9b0e38cba126599c24b5062c9c6ce9d4c6b5745c91e8a2eda596fe39ab27093459e8aa2934cf387
   languageName: node
   linkType: hard
 
@@ -2399,16 +2528,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"electron@npm:^24.0.0":
-  version: 24.0.0
-  resolution: "electron@npm:24.0.0"
+"electron@npm:^24.3.0":
+  version: 24.3.0
+  resolution: "electron@npm:24.3.0"
   dependencies:
     "@electron/get": ^2.0.0
     "@types/node": ^18.11.18
     extract-zip: ^2.0.1
   bin:
     electron: cli.js
-  checksum: 6b2fe2f25e996eed5aefaac481d9d1666e0d4666843887e9029a044640a7559933c1ae9d67215af88a018c2052821201ea23475396c7ead6a7ba6716b0913fdb
+  checksum: 8377882a5246cfc5e4d11acf9bc800f95e3269710d3e3dce5ea81578ee5c36156fc111ddf932d02ab876111586712d2efea726775746bf3da3d8e5d02f6ee685
   languageName: node
   linkType: hard
 
@@ -5562,9 +5691,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:^3.21.0":
-  version: 3.21.0
-  resolution: "rollup@npm:3.21.0"
+"rollup@npm:^3.21.7":
+  version: 3.21.7
+  resolution: "rollup@npm:3.21.7"
   dependencies:
     fsevents: ~2.3.2
   dependenciesMeta:
@@ -5572,7 +5701,7 @@ __metadata:
       optional: true
   bin:
     rollup: dist/bin/rollup
-  checksum: f3294d712147c0975c59ff81b3010dc08d07743cdad72fbe12879044b3e467139b3c2aeec85768656c4f7ec6a7b3d19354a78fc2050044bf8e90a499e145e31e
+  checksum: 44372a1e6fbd1941d6cb230b2a3de6d86861ca7523792757c9fe1d254ae4cd645f5dae27d93c7b1e02c60945d2eadd8c74a99033bd8328eda84949086330d804
   languageName: node
   linkType: hard
 
@@ -6102,9 +6231,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svelte-check@npm:^3.2.0":
-  version: 3.2.0
-  resolution: "svelte-check@npm:3.2.0"
+"svelte-check@npm:^3.3.2":
+  version: 3.3.2
+  resolution: "svelte-check@npm:3.3.2"
   dependencies:
     "@jridgewell/trace-mapping": ^0.3.17
     chokidar: ^3.4.1
@@ -6118,7 +6247,7 @@ __metadata:
     svelte: ^3.55.0
   bin:
     svelte-check: bin/svelte-check
-  checksum: aee12828fb47e13b1aacd9f7069adc3f154087b5597ea8f4957b0288c87925a8b9542493e261b6bfba780a3e9962256a93ba3302d72a064735260e2371c7030d
+  checksum: eb2079f499e42313dd875efc0dc72b4c3c843165bf5b7f013faf759d96fd4bab7ec9d3765a04ae4a77ef2e79b4b7ac90908cce3e844cf069fffbb9ad7ed56a98
   languageName: node
   linkType: hard
 
@@ -6177,10 +6306,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svelte@npm:^3.58.0":
-  version: 3.58.0
-  resolution: "svelte@npm:3.58.0"
-  checksum: c05625705961adc971e2bed6b86957c065f34e9d358390ad8dc953f8b4c956bb5ed297e3466f18c8080339cd26b973294489ee4094800fd75a8650fa1f6a9b52
+"svelte@npm:^3.59.1":
+  version: 3.59.1
+  resolution: "svelte@npm:3.59.1"
+  checksum: bd4344f01a5b0e219af99874b4e300e4e63449f81aa9e45c1216301a23f72baaf9b235147a40949d87e2a1430e7850659d73dec6be398bcd07706b79d4022cd6
   languageName: node
   linkType: hard
 
@@ -6282,16 +6411,18 @@ __metadata:
     "@electron/notarize": ^1.2.2
     "@ianvs/prettier-plugin-sort-imports": ^3.7.2
     "@iarna/toml": ^2.2.5
-    "@rollup/plugin-commonjs": 24
+    "@rollup/plugin-commonjs": 25
     "@rollup/plugin-json": ^6.0.0
     "@rollup/plugin-node-resolve": 15.0.2
+    "@rollup/plugin-swc": ^0.1.0
     "@rollup/plugin-terser": ^0.4.1
     "@rollup/plugin-typescript": ^8.0.0
+    "@swc/core": ^1.3.58
     "@tsconfig/svelte": ^4.0.1
     autoprefixer: ^10.4.0
     cross-env: ^7.0.3
     dotenv: ^16.0.3
-    electron: ^24.0.0
+    electron: ^24.3.0
     electron-builder: ^23.6.0
     electron-builder-notarize: ^1.5.1
     electron-log: ^4.4.8
@@ -6308,7 +6439,7 @@ __metadata:
     prettier: ^2.5.1
     prettier-plugin-svelte: ^2.5.1
     prettier-plugin-tailwindcss: ^0.2.7
-    rollup: ^3.21.0
+    rollup: ^3.21.7
     rollup-plugin-css-only: ^4.3.0
     rollup-plugin-delete: ^2.0.0
     rollup-plugin-livereload: ^2.0.0
@@ -6317,15 +6448,15 @@ __metadata:
     rollup-plugin-svelte: ^7.0.0
     sass: ^1.45.0
     sirv-cli: ^1.0.0
-    svelte: ^3.58.0
-    svelte-check: ^3.2.0
+    svelte: ^3.59.1
+    svelte-check: ^3.3.2
     svelte-preprocess: ^5.0.1
     svelte-spa-router: ^3.2.0
     tailwindcss: ^3.0.1
     toml: ^3.0.0
     tslib: ^2.0.0
     typescript: ^5.0.4
-    vm2: ^3.9.17
+    vm2: ^3.9.19
     ytcog: ^2.5.0
   languageName: unknown
   linkType: soft
@@ -6597,15 +6728,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vm2@npm:^3.9.17":
-  version: 3.9.17
-  resolution: "vm2@npm:3.9.17"
+"vm2@npm:^3.9.19":
+  version: 3.9.19
+  resolution: "vm2@npm:3.9.19"
   dependencies:
     acorn: ^8.7.0
     acorn-walk: ^8.2.0
   bin:
     vm2: bin/vm2
-  checksum: 9a03740a40ab2be5e3348a95fb31512da1a3c85318febb07e5299fa103ff05bcd7b6f458211fa38a1281dc27beccd04ff90355fc1d34fe2ee6ca10d0bb8c6f35
+  checksum: fc6cf553134145cd7bb5246985bf242b056e3fb5ea71e2eef6710b2a5d6c6119cc6bc960435ff62480ee82efb43369be8f4db07b6690916ae7d3b2e714f395d8
   languageName: node
   linkType: hard
 

@@ -3,6 +3,7 @@ import sveltePreprocess from 'svelte-preprocess';
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
 import resolve from '@rollup/plugin-node-resolve';
+import swc from '@rollup/plugin-swc';
 import terser from '@rollup/plugin-terser';
 import typescript from '@rollup/plugin-typescript';
 import autoprefixer from 'autoprefixer';
@@ -93,9 +94,12 @@ export default {
 			preferBuiltins: false
 		}),
 		commonjs(),
-		typescript({
+		/* typescript({
 			sourceMap: !production,
 			inlineSources: !production
+		}), */
+		swc({
+			target: 'es6'
 		}),
 		json(),
 
