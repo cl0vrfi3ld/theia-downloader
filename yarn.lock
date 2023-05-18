@@ -589,18 +589,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/plugin-swc@npm:^0.1.0":
-  version: 0.1.0
-  resolution: "@rollup/plugin-swc@npm:0.1.0"
+"@rollup/plugin-swc@npm:^0.1.1":
+  version: 0.1.1
+  resolution: "@rollup/plugin-swc@npm:0.1.1"
   dependencies:
-    smob: ^0.0.6
+    smob: ^1.0.0
   peerDependencies:
-    "@swc/core": ^1.x
+    "@swc/core": ^1.3.x
     rollup: ^3.x
   peerDependenciesMeta:
     rollup:
       optional: true
-  checksum: 4f0ef6b56d33093e41131fdfbcf9c9c2a52ce71c7f139bf44f9b63df2f6bdc94ab6b5c3c4322aaafe10ce746e37ea66172abdf872528055711198e6161a512fa
+  checksum: 39261589963a2a26610640a926e99145dbd5bf3a57c0c4c2fd032206e22a4ad81006bd7b7cc8e7c0baf7364584983bd3badd89c1aa4964c35511bf0dc8586b80
   languageName: node
   linkType: hard
 
@@ -5978,6 +5978,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"smob@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "smob@npm:1.0.0"
+  checksum: 6b6416f14b030f57ee05fc0d294fde5d22ce77b1baba024e6b58db0c9b0c662e3348b38b9e419ab8d1eac6c54854893cb5a9289e5160d37eb15a3e766e1a51f8
+  languageName: node
+  linkType: hard
+
 "socks-proxy-agent@npm:5, socks-proxy-agent@npm:^5.0.0":
   version: 5.0.1
   resolution: "socks-proxy-agent@npm:5.0.1"
@@ -6414,7 +6421,7 @@ __metadata:
     "@rollup/plugin-commonjs": 25
     "@rollup/plugin-json": ^6.0.0
     "@rollup/plugin-node-resolve": 15.0.2
-    "@rollup/plugin-swc": ^0.1.0
+    "@rollup/plugin-swc": ^0.1.1
     "@rollup/plugin-terser": ^0.4.1
     "@rollup/plugin-typescript": ^8.0.0
     "@swc/core": ^1.3.58
