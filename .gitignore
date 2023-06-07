@@ -1,5 +1,5 @@
 /node_modules/
-src/renderer/public/compiledjs
+src/renderer/public/compiled
 
 .DS_Store
 
@@ -31,4 +31,3 @@ asar-out-debug/
 # .pnp.*
 
 # End of https://www.toptal.com/developers/gitignore/api/yarn
-

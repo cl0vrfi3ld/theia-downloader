@@ -48,7 +48,7 @@ export default {
 		sourcemap: true,
 		format: 'es',
 		name: 'app',
-		dir: 'src/renderer/public/compiledjs'
+		dir: 'src/renderer/public/compiled'
 	},
 	plugins: [
 		// postcssrc(),
@@ -57,9 +57,9 @@ export default {
 			preprocess: sveltePreprocess({
 				sourceMap: !production,
 				postcss: { plugins: [autoprefixer, tailwind] },
-				sass: {
+				/* sass: {
 					prependData: `@import 'src/renderer/public/vars.sass'`
-				},
+				}, */
 
 				replace: [
 					['IS_DEV', !production],
@@ -78,7 +78,7 @@ export default {
 
 		// postcss({ extract: "src/renderer/public/build/bundle.css" }),
 
-		sass({ output: 'src/renderer/public/build/sass-out.css' }),
+		//sass({ output: 'src/renderer/public/build/sass-out.css' }),
 		// we'll extract any component CSS out into
 		// a separate file - better for performance
 		css({ output: 'bundle.css' }),
@@ -112,7 +112,7 @@ export default {
 		!production && livereload('src/renderer/public'),
 
 		// clear dist cache before building
-		production && del({ targets: 'src/renderer/public/compiledjs/*' }),
+		production && del({ targets: 'src/renderer/public/compiled/*' }),
 
 		// If we're building for production (npm run build
 		// instead of npm run dev), minify
