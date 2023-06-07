@@ -38,3 +38,10 @@
 			});
 	});
 </script>
+
+<main class="h-full w-screen" />
+
+<style lang="sass">
+	main
+	  opacity: 0
+</style>
