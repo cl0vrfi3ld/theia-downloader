@@ -3,7 +3,7 @@
 	"build": {
 		"beforeBuildCommand": "yarn build-ui",
 		"beforeDevCommand": "yarn dev",
-		"devPath": "http://localhost:5173",
+		"devPath": "http://localhost:9874",
 		"distDir": "../ui-out"
 	},
 	"package": {

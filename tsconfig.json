@@ -1,6 +1,34 @@
 {
-  "extends": "@tsconfig/svelte/tsconfig.json",
-
-  "include": ["src/renderer/**/*"],
-  "exclude": ["node_modules/*", "__sapper__/*", "src/renderer/public/*"]
+    "extends": "@tsconfig/svelte/tsconfig.json",
+    "compilerOptions": {
+        "target": "ESNext",
+        "useDefineForClassFields": true,
+        "module": "ESNext",
+        "resolveJsonModule": true,
+        /**
+     * Typecheck JS in `.svelte` and `.js` files by default.
+     * Disable checkJs if you'd like to use dynamic types in JS.
+     * Note that setting allowJs false does not prevent the use
+     * of JS in `.svelte` files.
+     */
+        "allowJs": true,
+        "checkJs": true,
+        "isolatedModules": true
+    },
+    "include": [
+        "src-ui/src/**/*.d.ts",
+        "src-ui/src/**/*.ts",
+        "src-ui/src/**/*.js",
+        "src-ui/src/**/*.svelte"
+    ],
+    "exclude": [
+        "node_modules/*",
+        // "__sapper__/*",
+        "src-ui/public/*"
+    ],
+    "references": [
+        {
+            "path": "./tsconfig.node.json"
+        }
+    ]
 }

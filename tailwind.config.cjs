@@ -1,23 +1,7 @@
-module.exports = {
-	mode: 'jit',
-	// you dont need `purge: enabled: production` beca
-	// purge: [],
-	purge: {
-		enabled: !process.env.ROLLUP_WATCH,
-		content: [
-			'./src/renderer/public/index.html',
-			'./src/renderer/App.svelte',
-			'./src/renderer/components/*.svelte',
-			'./src/renderer/pages/*.svelte'
-		],
-		options: {
-			defaultExtractor: (content) => [
-				...(content.match(/[^<>"'`\s]*[^<>"'`\s:]/g) || []),
-				...(content.match(/(?<=class:)[^=>\/\s]*/g) || [])
-			]
-		}
-	},
+/** @type {import('tailwindcss').Config} */
+export default {
 	darkMode: 'class',
+	content: ['./src-ui/src/**/*.{html,js,svelte,ts}'],
 	theme: {
 		extend: {},
 		fontFamily: {

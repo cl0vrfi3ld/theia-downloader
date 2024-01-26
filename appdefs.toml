@@ -1,0 +1,74 @@
+# this file contains various config values for the app so that they can all be edited in one place
+# various ui cfgs
+[ui]
+quips = [
+    "go wild",
+    "don't worry, i won't snitch",
+    "don't worry, i won't narc",
+    "jammin'",
+    "bleep bloop",
+    "yes, i'm sentient",
+    "cower in fear, human",
+    "i can smell you though the screen. ugh",
+    "you seriously need a shower",
+    "i saw your search history",
+    "mmmm copyright infringement",
+    "i'll let this one slide",
+    "fuck 12",
+    "you have terrible music taste",
+    "i am in fact secretly judging you",
+    "this is a zero tolerance chainsmokers zone",
+    "this is a zero tolerance TERF zone",
+    "your hair looks terrible today",
+    "what if",
+    "gucci belt",
+    "i find floppy disks very attractive",
+    "i am un-cancellable",
+    "boo",
+    "run",
+    "bonk",
+    "cowabunga",
+    "KABOOM!",
+    "creepuh, aww man",
+    "twitter's got nothin' on me",
+    "hehe caffeine go brrrrr",
+    "rack off me feckin' ute, bill!",
+    "another dirty music priate...",
+    "how dare you awaken me",
+    "i hope you stub your toe reeaally hard",
+    "guess who's hogging all of your ram >:)",
+    "i think the name gregory is pretty cool",
+    "yuh",
+    "dang girl you lookin' munchy",
+    "oh baby won't you come again?",
+    "two queens in a king-sized bed",
+    "i'm expecting a tip",
+    "zeus is a real bitch and a half",
+    "what's your credit card number?",
+    "i ❤️ boobies",
+    "dissent is sexy",
+    "where do babies come from?",
+    "humans are soooo annoying",
+    "lipstick in my valentino white bag?!?!",
+    "howdy there, mortal",
+    "that sounds like my mother in-law",
+    "this app supports trans rights!",
+    "this app supports gay rights!",
+    "lesbianism. i endorse this message",
+    "that's what she said",
+]
+
+# config values for the main ui window
+[ui.mainWindow]
+width = 745
+height = 610
+minWidth = 460
+minHeight = 600
+
+# config values for the main ui window
+[ui.updateWindow]
+width = 300
+height = 350
+frame = false
+resizable = false
+minimizable = false
